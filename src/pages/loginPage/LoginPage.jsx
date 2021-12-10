@@ -13,15 +13,15 @@ const LoginPage = () => {
         <div className="rsLoginPage">
             <div className="container-fluid ps-md-0">
                 <div className="row g-0">
-                    <div className="bg-secondary col-lg-6" />
-                    <div className="col-lg-6 maxHeightVH d-flex align-items-center">
+                    <div className="bg-secondary col-lg-6 d-none d-xl-block" />
+                    <div className="maxHeightVH col-md-12 col-xl-6 d-flex align-items-center">
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-9 col-lg-8 mx-auto">
-                                    <div className="card p-5">
+                                    <div className="card p-md-5">
                                         <div className="card-body">
                                             <form onSubmit={onSubmitForm}>
-                                                <h1 className="text-center">
+                                                <h1 className="text-center pb-md-3">
                                                     Welcome back!
                                                 </h1>
                                                 <div className="mb-4">

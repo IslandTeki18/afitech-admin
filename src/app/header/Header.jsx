@@ -29,9 +29,9 @@ const Header = () => {
                                 <a
                                     className="nav-link active"
                                     aria-current="page"
-                                    href="!#"
+                                    href="/dashboard"
                                 >
-                                    Home
+                                    Dashboard
                                 </a>
                             </li>
                             <li className="nav-item">
