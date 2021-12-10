@@ -14,7 +14,7 @@ const LoginPage = () => {
             <div className="container-fluid ps-md-0">
                 <div className="row g-0">
                     <div className="bg-secondary col-lg-6 d-none d-xl-block" />
-                    <div className="maxHeightVH col-md-12 col-xl-6 d-flex align-items-center">
+                    <div className="fullScreen col-md-12 col-xl-6 d-flex align-items-center">
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-9 col-lg-8 mx-auto">

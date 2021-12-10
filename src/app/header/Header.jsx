@@ -1,7 +1,10 @@
 import React from "react";
 import "./Header.scss";
 
-const Header = () => {
+const Header = (props) => {
+    function logout() {
+        console.log("Logout User");
+    }
     return (
         <div className="rsHeader">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -34,47 +37,14 @@ const Header = () => {
                                     Dashboard
                                 </a>
                             </li>
+
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Features
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Pricing
-                                </a>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a
-                                    className="nav-link dropdown-toggle"
-                                    href="!#"
-                                    id="navbarDropdownMenuLink"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
+                                <button
+                                    className="btn btn-link nav-link"
+                                    onClick={() => logout()}
                                 >
-                                    Dropdown link
-                                </a>
-                                <ul
-                                    className="dropdown-menu"
-                                    aria-labelledby="navbarDropdownMenuLink"
-                                >
-                                    <li>
-                                        <a className="dropdown-item" href="!#">
-                                            Action
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="!#">
-                                            Another action
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item" href="#">
-                                            Something else here
-                                        </a>
-                                    </li>
-                                </ul>
+                                    Logout
+                                </button>
                             </li>
                         </ul>
                     </div>
