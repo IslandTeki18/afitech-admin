@@ -30,14 +30,81 @@ const Header = (props) => {
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <a
-                                    className="nav-link active"
+                                    className="nav-link"
                                     aria-current="page"
                                     href="/dashboard"
                                 >
                                     Dashboard
                                 </a>
                             </li>
-
+                            <li className="nav-item dropdown">
+                                <a
+                                    className="nav-link dropdown-toggle"
+                                    href="!#"
+                                    id="navbarDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    List Pages
+                                </a>
+                                <ul
+                                    className="dropdown-menu"
+                                    aria-labelledby="navbarDropdown"
+                                >
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="/project-list"
+                                        >
+                                            Project List
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="/bloglist"
+                                        >
+                                            Blog List
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="/service-list"
+                                        >
+                                            Service List
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="/employee-list"
+                                        >
+                                            Employee List
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="/testimonial-list"
+                                        >
+                                            Testimonial List
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr className="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="/user-settings"
+                                        >
+                                            User Settings
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li className="nav-item">
                                 <button
                                     className="btn btn-link nav-link"
