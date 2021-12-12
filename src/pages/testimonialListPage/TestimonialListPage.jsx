@@ -26,7 +26,7 @@ const TestimonialListPage = () => {
     return (
         <div className="dkTestimonialListPage">
             <div className="container py-5 fullScreen">
-                <h1 className="display-4">Testimonial List</h1>
+                <h1 className="display-4 text-uppercase">Testimonial List</h1>
                 <div className="row">
                     <div className="col-lg-9">
                         <DataTable
@@ -40,19 +40,17 @@ const TestimonialListPage = () => {
                                     <td>{item.location}</td>
                                     <td>{item.isActive ? "True" : "False"}</td>
                                     <td>
-                                        <button className="btn btn-primary btn-sm">
-                                            View
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button className="btn btn-warning btn-sm">
-                                            Edit
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button className="btn btn-danger btn-sm">
-                                            Delete
-                                        </button>
+                                        <div className="btn-group">
+                                            <button className="btn btn-primary">
+                                                View
+                                            </button>
+                                            <button className="btn btn-warning">
+                                                Edit
+                                            </button>
+                                            <button className="btn btn-danger">
+                                                Delete
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}

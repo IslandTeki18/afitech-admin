@@ -63,7 +63,7 @@ const Header = (props) => {
                                     <li>
                                         <a
                                             className="dropdown-item"
-                                            href="/bloglist"
+                                            href="/blog-list"
                                         >
                                             Blog List
                                         </a>

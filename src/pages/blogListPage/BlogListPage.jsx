@@ -1,23 +1,23 @@
 import React from "react";
-import "./ServiceListPage.scss";
+import "./BlogListPage.scss";
 import DataTable from "../../components/dataTable/DataTable";
 
-const ServiceListPage = () => {
-    const tableHeaderColumn = ["id", "title", "type", "isAvailable"];
+const BlogListPage = () => {
+    const tableHeaderColumn = ["id", "title", "type", "isPublished"];
 
     const dummyData = [
         {
             id: 1,
-            title: "Full Stack Web Development",
-            type: "FS-WEB",
-            isAvailable: true,
+            title: "Cleaning up Create React App",
+            type: "ReactJS",
+            isPublished: true,
         },
     ];
 
     return (
-        <div className="dkServiceListPage">
+        <div className="dkBlogListPage">
             <div className="container py-5 fullScreen">
-                <h1 className="display-4 text-uppercase">Service List</h1>
+                <h1 className="display-4 text-uppercase">Blog List</h1>
                 <div className="row">
                     <div className="col-lg-9">
                         <DataTable
@@ -28,7 +28,7 @@ const ServiceListPage = () => {
                                     <td>{item.title}</td>
                                     <td>{item.type}</td>
                                     <td>
-                                        {item.isAvailable ? "True" : "False"}
+                                        {item.isPublished ? "True" : "False"}
                                     </td>
                                     <td>
                                         <div className="btn-group">
@@ -51,7 +51,7 @@ const ServiceListPage = () => {
                         <div className="card">
                             <div className="card-header">Action List</div>
                             <div className="card-body">
-                                <a href="/project/create">Create Project</a>
+                                <a href="/project/create">Create Blog</a>
                             </div>
                         </div>
                     </div>
@@ -61,4 +61,4 @@ const ServiceListPage = () => {
     );
 };
 
-export default ServiceListPage;
+export default BlogListPage;

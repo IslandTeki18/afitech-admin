@@ -1,23 +1,23 @@
 import React from "react";
-import "./ServiceListPage.scss";
+import "./EmployeeListPage.scss";
 import DataTable from "../../components/dataTable/DataTable";
 
-const ServiceListPage = () => {
-    const tableHeaderColumn = ["id", "title", "type", "isAvailable"];
+const EmployeeListPage = () => {
+    const tableHeaderColumn = ["id", "name", "position", "isActive"];
 
     const dummyData = [
         {
             id: 1,
-            title: "Full Stack Web Development",
-            type: "FS-WEB",
-            isAvailable: true,
+            name: "Landon McKell",
+            position: "CEO-FOUNDER",
+            isActive: true,
         },
     ];
 
     return (
-        <div className="dkServiceListPage">
+        <div className="dkEmployeeListPage">
             <div className="container py-5 fullScreen">
-                <h1 className="display-4 text-uppercase">Service List</h1>
+                <h1 className="display-4 text-uppercase">Employee List</h1>
                 <div className="row">
                     <div className="col-lg-9">
                         <DataTable
@@ -25,10 +25,10 @@ const ServiceListPage = () => {
                             tableBodyRows={dummyData.map((item) => (
                                 <tr>
                                     <th scope="row">{item.id}</th>
-                                    <td>{item.title}</td>
-                                    <td>{item.type}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.position}</td>
                                     <td>
-                                        {item.isAvailable ? "True" : "False"}
+                                        {item.isPublished ? "True" : "False"}
                                     </td>
                                     <td>
                                         <div className="btn-group">
@@ -51,7 +51,7 @@ const ServiceListPage = () => {
                         <div className="card">
                             <div className="card-header">Action List</div>
                             <div className="card-body">
-                                <a href="/project/create">Create Project</a>
+                                <a href="/project/create">Create Employee</a>
                             </div>
                         </div>
                     </div>
@@ -61,4 +61,4 @@ const ServiceListPage = () => {
     );
 };
 
-export default ServiceListPage;
+export default EmployeeListPage;
