@@ -19,7 +19,7 @@ const BlogListPage = () => {
             <div className="container py-5 fullScreen">
                 <h1 className="display-4 text-uppercase">Blog List</h1>
                 <div className="row">
-                    <div className="col-lg-9">
+                    <div className="col-lg-9 order-md-2 order-lg-1">
                         <DataTable
                             tableHeaderColumns={tableHeaderColumn}
                             tableBodyRows={dummyData.map((item) => (
@@ -47,7 +47,7 @@ const BlogListPage = () => {
                             ))}
                         />
                     </div>
-                    <div className="col-lg-3">
+                    <div className="col-lg-3 order-md-1 order-lg-2 pb-md-3">
                         <div className="card">
                             <div className="card-header">Action List</div>
                             <div className="card-body">

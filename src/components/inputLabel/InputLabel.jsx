@@ -6,6 +6,8 @@ const InputLabel = (props) => {
         <div
             className={`dkInputLabel${
                 props.className ? ` ${props.className}` : ""
+            }${props.type === `checkbox` ? ` form-check` : ``}${
+                props.isToggle ? " form-switch" : ""
             }`}
         >
             <label for={props.inputId} className="form-label">
@@ -13,12 +15,17 @@ const InputLabel = (props) => {
             </label>
             <input
                 type={props.type}
-                className="form-control"
+                className={
+                    props.type === "checkbox"
+                        ? "form-check-input"
+                        : "form-control"
+                }
                 id={props.inputId}
                 placeholder={props.placeholder}
                 required={props.isRequired}
                 onChange={props.onChange}
                 value={props.value}
+                checked={props.checked}
             />
         </div>
     );
@@ -34,6 +41,8 @@ InputLabel.propTypes = {
     isRequired: PropTypes.bool,
     onChange: PropTypes.func,
     value: PropTypes.string,
+    checked: PropTypes.bool,
+    isToggle: PropTypes.bool,
 };
 
 export default InputLabel;
