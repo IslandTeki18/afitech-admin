@@ -11,6 +11,7 @@ import EmployeeListPage from "./pages/employeeListPage/EmployeeListPage";
 import BlogListPage from "./pages/blogListPage/BlogListPage";
 import BlogDetailsPage from "./pages/blogDetailsPage/BlogDetailsPage";
 import BlogEditPage from "./pages/blogEditPage/BlogEditPage";
+import ProjectEditPage from "./pages/projectEditPage/ProjectEditPage";
 
 function App() {
     // Hardcode Auth for now
@@ -42,6 +43,9 @@ function App() {
                 </ProtectedRoute>
                 <ProtectedRoute isAuth={isAuth} path="/blog/edit">
                     <BlogEditPage />
+                </ProtectedRoute>
+                <ProtectedRoute isAuth={isAuth} path="/project/edit">
+                    <ProjectEditPage />
                 </ProtectedRoute>
                 <ProtectedRoute exact isAuth={isAuth} path="/employee-list">
                     <EmployeeListPage />
