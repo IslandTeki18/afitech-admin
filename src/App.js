@@ -6,6 +6,7 @@ import LoginPage from "./pages/loginPage/LoginPage";
 import DashboardPage from "./pages/dashboardPage/DashboardPage";
 import ProjectListPage from "./pages/projectListPage/ProjectListPage";
 import ProjectEditPage from "./pages/projectEditPage/ProjectEditPage";
+import ProjectDetailsPage from "./pages/projectDetailsPage/ProjectDetailsPage";
 import ServiceListPage from "./pages/serviceListPage/ServiceListPage";
 import ServiceEditPage from "./pages/serviceEditPage/ServiceEditPage";
 import TestimonialListPage from "./pages/testimonialListPage/TestimonialListPage";
@@ -33,6 +34,9 @@ function App() {
                 </ProtectedRoute>
                 <ProtectedRoute isAuth={isAuth} path="/project/edit">
                     <ProjectEditPage />
+                </ProtectedRoute>
+                <ProtectedRoute isAuth={isAuth} path="/project/details">
+                    <ProjectDetailsPage />
                 </ProtectedRoute>
                 <ProtectedRoute exact isAuth={isAuth} path="/service-list">
                     <ServiceListPage />

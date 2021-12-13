@@ -1,5 +1,6 @@
 import React from "react";
 import "./ProjectListPage.scss";
+import { Link } from "react-router-dom";
 import DataTable from "../../components/dataTable/DataTable";
 
 const ProjectListPage = () => {
@@ -34,12 +35,18 @@ const ProjectListPage = () => {
                                     <td>{item.status}</td>
                                     <td>
                                         <div className="btn-group">
-                                            <button className="btn btn-primary">
+                                            <Link
+                                                to="/project/details"
+                                                className="btn btn-primary"
+                                            >
                                                 View
-                                            </button>
-                                            <button className="btn btn-warning">
+                                            </Link>
+                                            <Link
+                                                to="/project/edit"
+                                                className="btn btn-warning"
+                                            >
                                                 Edit
-                                            </button>
+                                            </Link>
                                             <button className="btn btn-danger">
                                                 Delete
                                             </button>
