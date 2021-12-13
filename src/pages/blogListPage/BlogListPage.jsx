@@ -1,6 +1,7 @@
 import React from "react";
 import "./BlogListPage.scss";
 import DataTable from "../../components/dataTable/DataTable";
+import { Link } from "react-router-dom";
 
 const BlogListPage = () => {
     const tableHeaderColumn = ["id", "title", "type", "isPublished"];
@@ -32,12 +33,18 @@ const BlogListPage = () => {
                                     </td>
                                     <td>
                                         <div className="btn-group">
-                                            <button className="btn btn-primary">
+                                            <Link
+                                                to="/blog/details"
+                                                className="btn btn-primary"
+                                            >
                                                 View
-                                            </button>
-                                            <button className="btn btn-warning">
+                                            </Link>
+                                            <Link
+                                                to="/blog/edit"
+                                                className="btn btn-warning"
+                                            >
                                                 Edit
-                                            </button>
+                                            </Link>
                                             <button className="btn btn-danger">
                                                 Delete
                                             </button>

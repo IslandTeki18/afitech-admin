@@ -8,10 +8,12 @@ const BlogEditPage = () => {
     return (
         <div className="dkBlogEditPage">
             <div className="container">
-                <h2>Blog Edit Page</h2>
-                <Link className="btn btn-secondary" to="/blog-list">
-                    back
-                </Link>
+                <div className="d-flex justify-content-between align-items-center py-4">
+                    <h2>Blog Edit Page</h2>
+                    <Link className="btn btn-secondary" to="/blog/details">
+                        back
+                    </Link>
+                </div>
                 <form>
                     <div className="row">
                         <div className="col-md-6">
@@ -93,7 +95,7 @@ const BlogEditPage = () => {
                     </div>
                     <div className="row mb-4">
                         <div className="col-6 d-grid ">
-                            <button type="submit" className="btn btn-primary">
+                            <button type="submit" className="btn btn-success">
                                 Save
                             </button>
                         </div>

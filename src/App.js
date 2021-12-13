@@ -5,15 +5,15 @@ import Footer from "./app/footer/Footer";
 import LoginPage from "./pages/loginPage/LoginPage";
 import DashboardPage from "./pages/dashboardPage/DashboardPage";
 import ProjectListPage from "./pages/projectListPage/ProjectListPage";
+import ProjectEditPage from "./pages/projectEditPage/ProjectEditPage";
 import ServiceListPage from "./pages/serviceListPage/ServiceListPage";
+import ServiceEditPage from "./pages/serviceEditPage/ServiceEditPage";
 import TestimonialListPage from "./pages/testimonialListPage/TestimonialListPage";
-import EmployeeListPage from "./pages/employeeListPage/EmployeeListPage";
+import TestimonialEditPage from "./pages/testimonialEditPage/TestimonialEditPage";
 import BlogListPage from "./pages/blogListPage/BlogListPage";
 import BlogDetailsPage from "./pages/blogDetailsPage/BlogDetailsPage";
 import BlogEditPage from "./pages/blogEditPage/BlogEditPage";
-import ProjectEditPage from "./pages/projectEditPage/ProjectEditPage";
-import ServiceEditPage from "./pages/serviceEditPage/ServiceEditPage";
-import TestimonialEditPage from "./pages/testimonialEditPage/TestimonialEditPage";
+import EmployeeListPage from "./pages/employeeListPage/EmployeeListPage";
 
 function App() {
     // Hardcode Auth for now
