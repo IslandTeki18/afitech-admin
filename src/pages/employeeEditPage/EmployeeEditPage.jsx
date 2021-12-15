@@ -2,7 +2,6 @@ import React from "react";
 import "./EmployeeEditPage.scss";
 import { Link } from "react-router-dom";
 import InputLabel from "../../components/inputLabel/InputLabel";
-import RichTextEditor from "../../components/richTextEditor/RichTextEditor";
 
 const EmployeeEditPage = () => {
     return (
@@ -17,7 +16,7 @@ const EmployeeEditPage = () => {
                 <form>
                     <div className="row">
                         <div className="col-md-6">
-                            <div className="my-3">
+                            <div className="mb-3">
                                 <img
                                     src="https://via.placeholder.com/700x400"
                                     alt="placeholder"
@@ -47,16 +46,24 @@ const EmployeeEditPage = () => {
                                     placeholder="Last Name..."
                                 />
                             </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="my-3">
+                            <div className="mb-3">
                                 <InputLabel
-                                    inputId="employeeTitleInputLabel"
+                                    inputId="employeePositionInputLabel"
                                     type="text"
-                                    labelText="Title"
-                                    placeholder="Title..."
+                                    labelText="Company Position"
+                                    placeholder="Position..."
                                 />
                             </div>
+                            <div className="mb-3">
+                                <InputLabel
+                                    inputId="activeChecked"
+                                    type="checkbox"
+                                    isToggle
+                                    labelText="Is Active"
+                                />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
                             <div className="mb-3 d-flex flex-column">
                                 <label htmlFor="aboutEmployee" className="pb-2">
                                     About Employee
@@ -68,10 +75,52 @@ const EmployeeEditPage = () => {
                             </div>
                             <div className="mb-3">
                                 <InputLabel
-                                    inputId="activeChecked"
-                                    type="checkbox"
-                                    isToggle
-                                    labelText="Is Active"
+                                    inputId="employeePhoneInputLabel"
+                                    type="tel"
+                                    labelText="Phone"
+                                    placeholder="Phone..."
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <InputLabel
+                                    inputId="employeeEmailInputLabel"
+                                    type="email"
+                                    labelText="Email"
+                                    placeholder="Email..."
+                                />
+                            </div>
+                            <hr className="m-4" />
+                            <div className="mb-3">
+                                <h5 className="mb-3">Social Media Links</h5>
+                                <InputLabel
+                                    inputId="employeeSMLFacebookInputLabel"
+                                    type="text"
+                                    labelText="Facebook"
+                                    placeholder="Facebook Page Url..."
+                                />
+                                <InputLabel
+                                    inputId="employeeSMLFacebookInputLabel"
+                                    type="text"
+                                    labelText="Github"
+                                    placeholder="Github Profile Url..."
+                                />
+                                <InputLabel
+                                    inputId="employeeSMLFacebookInputLabel"
+                                    type="text"
+                                    labelText="Instagram"
+                                    placeholder="Instagram Profile Url..."
+                                />
+                                <InputLabel
+                                    inputId="employeeSMLFacebookInputLabel"
+                                    type="text"
+                                    labelText="LinkedIn"
+                                    placeholder="LinkedIn Profile Url..."
+                                />
+                                <InputLabel
+                                    inputId="employeeSMLFacebookInputLabel"
+                                    type="text"
+                                    labelText="Twitter"
+                                    placeholder="Twitter Account Url..."
                                 />
                             </div>
                         </div>
