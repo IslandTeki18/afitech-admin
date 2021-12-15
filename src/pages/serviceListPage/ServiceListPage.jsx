@@ -1,5 +1,6 @@
 import React from "react";
 import "./ServiceListPage.scss";
+import { Link } from "react-router-dom";
 import DataTable from "../../components/dataTable/DataTable";
 
 const ServiceListPage = () => {
@@ -32,12 +33,18 @@ const ServiceListPage = () => {
                                     </td>
                                     <td>
                                         <div className="btn-group">
-                                            <button className="btn btn-primary">
+                                            <Link
+                                                to="/service/details"
+                                                className="btn btn-primary"
+                                            >
                                                 View
-                                            </button>
-                                            <button className="btn btn-warning">
+                                            </Link>
+                                            <Link
+                                                to="/service/edit"
+                                                className="btn btn-warning"
+                                            >
                                                 Edit
-                                            </button>
+                                            </Link>
                                             <button className="btn btn-danger">
                                                 Delete
                                             </button>

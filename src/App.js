@@ -9,6 +9,7 @@ import ProjectEditPage from "./pages/projectEditPage/ProjectEditPage";
 import ProjectDetailsPage from "./pages/projectDetailsPage/ProjectDetailsPage";
 import ServiceListPage from "./pages/serviceListPage/ServiceListPage";
 import ServiceEditPage from "./pages/serviceEditPage/ServiceEditPage";
+import ServiceDetailsPage from "./pages/serviceDetailsPage/ServiceDetailsPage";
 import TestimonialListPage from "./pages/testimonialListPage/TestimonialListPage";
 import TestimonialEditPage from "./pages/testimonialEditPage/TestimonialEditPage";
 import BlogListPage from "./pages/blogListPage/BlogListPage";
@@ -44,6 +45,9 @@ function App() {
                 </ProtectedRoute>
                 <ProtectedRoute isAuth={isAuth} path="/service/edit">
                     <ServiceEditPage />
+                </ProtectedRoute>
+                <ProtectedRoute isAuth={isAuth} path="/service/details">
+                    <ServiceDetailsPage />
                 </ProtectedRoute>
                 <ProtectedRoute exact isAuth={isAuth} path="/testimonial-list">
                     <TestimonialListPage />
