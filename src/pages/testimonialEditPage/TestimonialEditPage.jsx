@@ -7,10 +7,12 @@ const TestimonialEditPage = () => {
     return (
         <div className="dkTestimonialEditPage">
             <div className="container">
-                <h2>Testimonial Edit Page</h2>
-                <Link className="btn btn-secondary" to="/testimonial-list">
-                    back
-                </Link>
+                <div className="d-flex justify-content-between align-items-center my-3">
+                    <h2>Testimonial Edit Page</h2>
+                    <Link className="btn btn-secondary" to="/testimonial/details">
+                        back
+                    </Link>
+                </div>
                 <form>
                     <div className="row">
                         <div className="col-md-6">

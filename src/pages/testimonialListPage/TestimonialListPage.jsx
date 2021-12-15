@@ -1,5 +1,6 @@
 import React from "react";
 import "./TestimonialListPage.scss";
+import { Link } from "react-router-dom";
 import DataTable from "../../components/dataTable/DataTable";
 
 const TestimonialListPage = () => {
@@ -41,12 +42,18 @@ const TestimonialListPage = () => {
                                     <td>{item.isActive ? "True" : "False"}</td>
                                     <td>
                                         <div className="btn-group">
-                                            <button className="btn btn-primary">
+                                            <Link
+                                                to="/testimonial/details"
+                                                className="btn btn-primary"
+                                            >
                                                 View
-                                            </button>
-                                            <button className="btn btn-warning">
+                                            </Link>
+                                            <Link
+                                                to="/testimonial/edit"
+                                                className="btn btn-warning"
+                                            >
                                                 Edit
-                                            </button>
+                                            </Link>
                                             <button className="btn btn-danger">
                                                 Delete
                                             </button>
