@@ -9,8 +9,8 @@ const LoginPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const userLogin = useSelector((state) => state.userLogin);
-    const [userName, setUserName] = useState();
-    const [password, setPassword] = useState();
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
 
     useEffect(() => {
         if (userLogin.userInfo) {

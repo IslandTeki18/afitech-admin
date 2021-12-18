@@ -1,9 +1,12 @@
 import React from "react";
 import "./Header.scss";
+import { useDispatch } from "react-redux";
+import { logout } from "../../actions/user.actions";
 
 const Header = (props) => {
-    function logout() {
-        console.log("Logout User");
+    const dispatch = useDispatch();
+    function logoutHandler() {
+        dispatch(logout());
     }
     return (
         <div className="rsHeader">
@@ -108,7 +111,7 @@ const Header = (props) => {
                             <li className="nav-item">
                                 <button
                                     className="btn btn-link nav-link"
-                                    onClick={() => logout()}
+                                    onClick={() => logoutHandler()}
                                 >
                                     Logout
                                 </button>
