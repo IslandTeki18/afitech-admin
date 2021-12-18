@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProtectedRoute from "./utils/protectedRoute/ProtectedRoute";
+import { useSelector } from "react-redux";
 import Header from "./app/header/Header";
 import Footer from "./app/footer/Footer";
 import LoginPage from "./pages/loginPage/LoginPage";
@@ -21,69 +22,82 @@ import EmployeeEditPage from "./pages/employeeEditPage/EmployeeEditPage";
 import EmployeeDetailsPage from "./pages/employeeDetailsPage/EmployeeDetailsPage";
 
 function App() {
-    // Hardcode Auth for now
-    let isAuth = true;
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+
     return (
         <Router>
-            {isAuth && <Header />}
+            {userInfo && <Header />}
             <main>
                 <Route exact path="/">
                     <LoginPage />
                 </Route>
-                <ProtectedRoute exact isAuth={isAuth} path="/dashboard">
+                <ProtectedRoute exact isAuth={userInfo} path="/dashboard">
                     <DashboardPage />
                 </ProtectedRoute>
-                <ProtectedRoute exact isAuth={isAuth} path="/project-list">
+                <ProtectedRoute exact isAuth={userInfo} path="/project-list">
                     <ProjectListPage />
                 </ProtectedRoute>
-                <ProtectedRoute isAuth={isAuth} path="/project/edit">
+                <ProtectedRoute isAuth={userInfo} path="/project/edit">
                     <ProjectEditPage />
                 </ProtectedRoute>
-                <ProtectedRoute isAuth={isAuth} path="/project/details">
+                <ProtectedRoute isAuth={userInfo} path="/project/details">
                     <ProjectDetailsPage />
                 </ProtectedRoute>
-                <ProtectedRoute exact isAuth={isAuth} path="/service-list">
+                <ProtectedRoute exact isAuth={userInfo} path="/service-list">
                     <ServiceListPage />
                 </ProtectedRoute>
-                <ProtectedRoute isAuth={isAuth} path="/service/edit">
+                <ProtectedRoute isAuth={userInfo} path="/service/edit">
                     <ServiceEditPage />
                 </ProtectedRoute>
-                <ProtectedRoute isAuth={isAuth} path="/service/details">
+                <ProtectedRoute isAuth={userInfo} path="/service/details">
                     <ServiceDetailsPage />
                 </ProtectedRoute>
-                <ProtectedRoute exact isAuth={isAuth} path="/testimonial-list">
+                <ProtectedRoute
+                    exact
+                    isAuth={userInfo}
+                    path="/testimonial-list"
+                >
                     <TestimonialListPage />
                 </ProtectedRoute>
-                <ProtectedRoute exact isAuth={isAuth} path="/testimonial/edit">
+                <ProtectedRoute
+                    exact
+                    isAuth={userInfo}
+                    path="/testimonial/edit"
+                >
                     <TestimonialEditPage />
                 </ProtectedRoute>
                 <ProtectedRoute
                     exact
-                    isAuth={isAuth}
+                    isAuth={userInfo}
                     path="/testimonial/details"
                 >
                     <TestimonialDetailsPage />
                 </ProtectedRoute>
-                <ProtectedRoute exact isAuth={isAuth} path="/blog-list">
+                <ProtectedRoute exact isAuth={userInfo} path="/blog-list">
                     <BlogListPage />
                 </ProtectedRoute>
-                <ProtectedRoute isAuth={isAuth} path="/blog/details">
+                <ProtectedRoute isAuth={userInfo} path="/blog/details">
                     <BlogDetailsPage />
                 </ProtectedRoute>
-                <ProtectedRoute isAuth={isAuth} path="/blog/edit">
+                <ProtectedRoute isAuth={userInfo} path="/blog/edit">
                     <BlogEditPage />
                 </ProtectedRoute>
-                <ProtectedRoute exact isAuth={isAuth} path="/employee-list">
+                <ProtectedRoute exact isAuth={userInfo} path="/employee-list">
                     <EmployeeListPage />
                 </ProtectedRoute>
-                <ProtectedRoute exact isAuth={isAuth} path="/employee/edit">
+                <ProtectedRoute exact isAuth={userInfo} path="/employee/edit">
                     <EmployeeEditPage />
                 </ProtectedRoute>
-                <ProtectedRoute exact isAuth={isAuth} path="/employee/details">
+                <ProtectedRoute
+                    exact
+                    isAuth={userInfo}
+                    path="/employee/details"
+                >
                     <EmployeeDetailsPage />
                 </ProtectedRoute>
             </main>
-            {isAuth && <Footer />}
+            {userInfo && <Footer />}
         </Router>
     );
 }

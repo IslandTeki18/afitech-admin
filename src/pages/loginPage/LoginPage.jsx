@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./LoginPage.scss";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { login } from "../../actions/user.actions";
 import InputLabel from "../../components/inputLabel/InputLabel";
 
 const LoginPage = () => {
-    const [email, setEmail] = useState();
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const userLogin = useSelector((state) => state.userLogin);
+    const [userName, setUserName] = useState();
     const [password, setPassword] = useState();
-    function onSubmitForm() {
-        console.log(email);
-        console.log(password);
+
+    useEffect(() => {
+        if (userLogin.userInfo) {
+            history.push("/dashboard");
+        }
+    }, [history, userLogin.userInfo]);
+
+    function onSubmitForm(e) {
+        e.preventDefault();
+        dispatch(login(userName, password));
+        history.push("/dashboard");
     }
     return (
         <div className="rsLoginPage">
@@ -20,19 +34,19 @@ const LoginPage = () => {
                                 <div className="col-md-9 col-lg-8 mx-auto">
                                     <div className="card p-md-5">
                                         <div className="card-body">
+                                            <h1 className="text-center pb-md-3">
+                                                Welcome back!
+                                            </h1>
                                             <form onSubmit={onSubmitForm}>
-                                                <h1 className="text-center pb-md-3">
-                                                    Welcome back!
-                                                </h1>
                                                 <div className="mb-4">
                                                     <InputLabel
-                                                        type="email"
-                                                        labelText="Email"
-                                                        placeholder="Email..."
-                                                        id="loginEmailInput"
-                                                        value={email}
+                                                        type="text"
+                                                        labelText="Username"
+                                                        placeholder="Username..."
+                                                        id="loginUsernameInput"
+                                                        value={userName}
                                                         onChange={(e) =>
-                                                            setEmail(
+                                                            setUserName(
                                                                 e.target.value
                                                             )
                                                         }
@@ -56,7 +70,8 @@ const LoginPage = () => {
                                                     <button
                                                         className="btn btn-primary"
                                                         disabled={
-                                                            !email || !password
+                                                            !userName ||
+                                                            !password
                                                         }
                                                         type="submit"
                                                     >

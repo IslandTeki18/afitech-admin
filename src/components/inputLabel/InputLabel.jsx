@@ -10,7 +10,7 @@ const InputLabel = (props) => {
                 props.isToggle ? " form-switch" : ""
             }`}
         >
-            <label for={props.inputId} className="form-label">
+            <label htmlFor={props.inputId} className="form-label">
                 {props.labelText}
             </label>
             <input
