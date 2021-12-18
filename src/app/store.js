@@ -9,7 +9,11 @@ const reducer = combineReducers({
     userUpdate: userUpdateReducer
 });
 
-const initialState = {};
+const currentUserFromStorage = localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : null
+
+const initialState = {
+    userLogin : {userInfo: currentUserFromStorage}
+};
 const middleware = [thunk];
 
 const store = createStore(

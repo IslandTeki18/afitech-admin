@@ -8,7 +8,7 @@ const DashboardPage = () => {
             <div className="container py-5 fullScreen">
                 <h1 className="pb-4">Welcome back!</h1>
                 <div className="row">
-                    <div className="col-4 mb-2">
+                    <div className="col-sm-12 col-md-6 col-lg-4 mb-2">
                         <DashboardActionCard
                             cardTitle="Blogs"
                             listViewUrl="/blog-list"
@@ -16,7 +16,7 @@ const DashboardPage = () => {
                             linkLabel="Blog"
                         />
                     </div>
-                    <div className="col-4 mb-2">
+                    <div className="col-sm-12 col-md-6 col-lg-4 mb-2">
                         <DashboardActionCard
                             cardTitle="Testimonials"
                             listViewUrl="/testimonial-list"
@@ -24,7 +24,7 @@ const DashboardPage = () => {
                             linkLabel="Testimonial"
                         />
                     </div>
-                    <div className="col-4 mb-2">
+                    <div className="col-sm-12 col-md-6 col-lg-4 mb-2">
                         <DashboardActionCard
                             cardTitle="Services"
                             listViewUrl="/service-list"
@@ -32,7 +32,7 @@ const DashboardPage = () => {
                             linkLabel="Services"
                         />
                     </div>
-                    <div className="col-4 mb-2">
+                    <div className="col-sm-12 col-md-6 col-lg-4 mb-2">
                         <DashboardActionCard
                             cardTitle="Projects"
                             listViewUrl="/project-list"
@@ -40,7 +40,7 @@ const DashboardPage = () => {
                             linkLabel="Project"
                         />
                     </div>
-                    <div className="col-4 mb-2">
+                    <div className="col-sm-12 col-md-6 col-lg-4 mb-2">
                         <DashboardActionCard
                             cardTitle="Employees"
                             listViewUrl="/employee-list"
