@@ -35,3 +35,21 @@ export const listProjects = () => async (dispatch) => {
     });
   }
 };
+
+export const detailsProject = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: PROJECT_DETAILS_REQUEST });
+    const { data } = await axios.get(
+      `https://protected-oasis-46723.herokuapp.com/api/projects/${id}`
+    );
+    dispatch({ type: PROJECT_DETAILS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: PROJECT_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
