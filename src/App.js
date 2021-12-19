@@ -38,10 +38,10 @@ function App() {
                 <ProtectedRoute exact isAuth={userInfo} path="/project-list">
                     <ProjectListPage />
                 </ProtectedRoute>
-                <ProtectedRoute isAuth={userInfo} path="/project/edit">
+                <ProtectedRoute isAuth={userInfo} path="/project/:id/edit">
                     <ProjectEditPage />
                 </ProtectedRoute>
-                <ProtectedRoute isAuth={userInfo} path="/project/details">
+                <ProtectedRoute isAuth={userInfo} path="/project/:id">
                     <ProjectDetailsPage />
                 </ProtectedRoute>
                 <ProtectedRoute exact isAuth={userInfo} path="/service-list">

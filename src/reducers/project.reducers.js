@@ -9,6 +9,9 @@ import {
   PROJECT_REMOVE_SUCCESS,
   PROJECT_REMOVE_FAIL,
   PROJECT_CREATE_SUCCESS,
+  PROJECT_CREATE_REQUEST,
+  PROJECT_CREATE_FAIL,
+  PROJECT_CREATE_RESET,
   PROJECT_UPDATE_REQUEST,
   PROJECT_UPDATE_SUCCESS,
   PROJECT_UPDATE_FAIL,
@@ -19,7 +22,7 @@ export const projectListReducer = (state = { projects: [] }, action) => {
     case PROJECT_ALL_REQUEST:
       return { loading: true, projects: [] };
     case PROJECT_ALL_SUCCESS:
-      return { loading: false, projects: action.payload.projects };
+      return { loading: false, projects: action.payload };
     case PROJECT_ALL_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -59,7 +62,7 @@ export const projectCreateReducer = (state = {}, action) => {
       return { loading: true };
     case PROJECT_CREATE_SUCCESS:
       return { loading: false, project: action.payload, success: true };
-    case PROJECT_CREATE_SUCCESS:
+    case PROJECT_CREATE_FAIL:
       return { loading: false, error: action.payload };
     case PROJECT_CREATE_RESET:
       return {};
