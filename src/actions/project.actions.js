@@ -11,7 +11,6 @@ import {
   PROJECT_CREATE_SUCCESS,
   PROJECT_CREATE_REQUEST,
   PROJECT_CREATE_FAIL,
-  PROJECT_CREATE_RESET,
   PROJECT_UPDATE_REQUEST,
   PROJECT_UPDATE_SUCCESS,
   PROJECT_UPDATE_FAIL,
@@ -46,6 +45,89 @@ export const detailsProject = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PROJECT_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const createProject = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: PROJECT_CREATE_REQUEST });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.post(
+      "https://protected-oasis-46723.herokuapp.com/api/projects",
+      {},
+      config
+    );
+    dispatch({ type: PROJECT_CREATE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: PROJECT_CREATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const deleteProject = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: PROJECT_REMOVE_REQUEST });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.delete(
+      `https://protected-oasis-46723.herokuapp.com/api/projects/${id}`,
+      config
+    );
+    dispatch({ type: PROJECT_REMOVE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: PROJECT_REMOVE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const updateProject = (project) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: PROJECT_UPDATE_REQUEST });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.put(
+      `https://protected-oasis-46723.herokuapp.com/api/projects/${project._id}`,
+      project,
+      config
+    );
+    dispatch({ type: PROJECT_UPDATE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: PROJECT_UPDATE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
