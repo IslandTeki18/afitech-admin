@@ -11,18 +11,10 @@ const ProjectDetailsPage = () => {
   const { id } = useParams();
   const projectDetails = useSelector((state) => state.projectDetails);
   const { loading, error, project } = projectDetails;
-//   const projectDelete = useSelector((state) => state.projectDelete);
-//   const {
-//     loading: deleteLoading,
-//     error: deleteError,
-//     success: deleteSuccess,
-//   } = projectDelete;
 
   useEffect(() => {
     dispatch(detailsProject(id));
   }, [dispatch, id]);
-
-//   function deleteProjectHandler() {}
 
   return (
     <div className="dkProjectDetailsPage">
@@ -34,7 +26,9 @@ const ProjectDetailsPage = () => {
           </Link>
         </div>
         {loading ? (
-          <Loader />
+          <div className="d-flex justify-content-between">
+            <Loader />
+          </div>
         ) : error ? (
           <Message variant="danger">{error}</Message>
         ) : (
@@ -42,11 +36,7 @@ const ProjectDetailsPage = () => {
             <div className="col-lg-6">
               <div className="mb-3">
                 <img
-                  src={
-                    project.images.length === 0
-                      ? "https://via.placeholder.com/700x400"
-                      : project.images
-                  }
+                  src={"https://via.placeholder.com/700x400"}
                   alt="project-showings"
                   className="img-fluid mb-3"
                 />
@@ -72,12 +62,9 @@ const ProjectDetailsPage = () => {
                     {project.isPublished ? "Yes" : "No"}
                   </p>
                 </div>
-                <div className="btn-group">
-                  <Link to="/project/edit" className="btn btn-secondary">
-                    Edit
-                  </Link>
-                  <button className="btn btn-danger">Delete</button>
-                </div>
+                <Link to="/project/edit" className="btn btn-secondary">
+                  Edit
+                </Link>
               </div>
               <div className="d-flex mb-4">
                 <h5 className="me-4">Slug:</h5>

@@ -53,33 +53,51 @@ export const detailsProject = (id) => async (dispatch) => {
   }
 };
 
-export const createProject = () => async (dispatch, getState) => {
-  try {
-    dispatch({ type: PROJECT_CREATE_REQUEST });
-    const {
-      userLogin: { userInfo },
-    } = getState();
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-    const { data } = await axios.post(
-      "https://protected-oasis-46723.herokuapp.com/api/projects",
-      {},
-      config
-    );
-    dispatch({ type: PROJECT_CREATE_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({
-      type: PROJECT_CREATE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+export const createProject =
+  (
+    title,
+    slug,
+    shortDescription,
+    longDescription,
+    projectType,
+    projectStatus,
+    projectUrl
+  ) =>
+  async (dispatch, getState) => {
+    try {
+      dispatch({ type: PROJECT_CREATE_REQUEST });
+      const {
+        userLogin: { userInfo },
+      } = getState();
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+      const { data } = await axios.post(
+        "https://protected-oasis-46723.herokuapp.com/api/projects",
+        {
+          title,
+          slug,
+          shortDescription,
+          longDescription,
+          projectType,
+          projectStatus,
+          projectUrl,
+        },
+        config
+      );
+      dispatch({ type: PROJECT_CREATE_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({
+        type: PROJECT_CREATE_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 export const deleteProject = (id) => async (dispatch, getState) => {
   try {
