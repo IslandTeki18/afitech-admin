@@ -68,8 +68,8 @@ const BlogListPage = () => {
       <DataTable
         isResponsive
         tableHeaderColumns={tableHeaderColumn}
-        tableBodyRows={blogs.map((item) => (
-          <tr>
+        tableBodyRows={blogs.map((item, idx) => (
+          <tr key={idx}>
             <th scope="row">{item._id}</th>
             <td>{item.title}</td>
             <td>{item.type}</td>
