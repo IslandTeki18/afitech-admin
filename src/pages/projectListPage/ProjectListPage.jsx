@@ -40,6 +40,7 @@ const ProjectListPage = () => {
   });
 
   useEffect(() => {
+    window.scrollTo(0, "smooth");
     dispatch(listProjects());
   }, [dispatch, createSuccess, deleteSuccess]);
 
@@ -110,12 +111,12 @@ const ProjectListPage = () => {
           <div className="col-lg-9 order-sm-2 order-lg-1">
             {deleteError && <Message>{deleteError}</Message>}
             {deleteSuccess && (
-              <Message variant="success" isDimissable>
+              <Message variant="success" isDismissable>
                 Project Removed!
               </Message>
             )}
             {createSuccess && (
-              <Message variant="success" isDimissable>
+              <Message variant="success" isDismissable>
                 Project Created!
               </Message>
             )}
@@ -187,6 +188,7 @@ const ProjectListPage = () => {
               Short Description
             </label>
             <textarea
+              className="form-control"
               rows={3}
               placeholder="Short Description..."
               value={project.shortDescription}
@@ -205,6 +207,7 @@ const ProjectListPage = () => {
               Long Description
             </label>
             <textarea
+              className="form-control"
               rows={3}
               placeholder="Long Description..."
               value={project.longDescription}

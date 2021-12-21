@@ -5,12 +5,12 @@ const Message = (props) => {
     <div className="dkMessage">
       <div
         className={`alert alert-${props.variant || "secondary"} ${
-          props.isDimissable && "alert-dismissible fade show"
+          props.isDismissable && "alert-dismissible fade show"
         }`}
         role="alert"
       >
         {props.children}
-        {props.isDimissable && (
+        {props.isDismissable && (
           <button
             type="button"
             class="btn-close"

@@ -13,6 +13,7 @@ const ProjectDetailsPage = () => {
   const { loading, error, project } = projectDetails;
 
   useEffect(() => {
+    window.scrollTo(0, "smooth");
     dispatch(detailsProject(id));
   }, [dispatch, id]);
 
@@ -62,7 +63,7 @@ const ProjectDetailsPage = () => {
                     {project.isPublished ? "Yes" : "No"}
                   </p>
                 </div>
-                <Link to="/project/edit" className="btn btn-secondary">
+                <Link to={`/project/${id}/edit`} className="btn btn-secondary">
                   Edit
                 </Link>
               </div>
