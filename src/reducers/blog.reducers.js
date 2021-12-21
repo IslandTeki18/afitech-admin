@@ -60,7 +60,7 @@ export const blogCreateReducer = (state = {}, action) => {
 };
 
 export const blogRemoveReducer = (state = {}, action) => {
-  switch (action.payload) {
+  switch (action.type) {
     case BLOG_REMOVE_REQUEST:
       return { loading: true };
     case BLOG_REMOVE_SUCCESS:

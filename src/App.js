@@ -65,10 +65,10 @@ function App() {
         <ProtectedRoute exact isAuth={userInfo} path="/blog-list">
           <BlogListPage />
         </ProtectedRoute>
-        <ProtectedRoute isAuth={userInfo} path="/blog/details">
+        <ProtectedRoute exact isAuth={userInfo} path="/blog/:id">
           <BlogDetailsPage />
         </ProtectedRoute>
-        <ProtectedRoute isAuth={userInfo} path="/blog/edit">
+        <ProtectedRoute exact isAuth={userInfo} path="/blog/:blogId/edit">
           <BlogEditPage />
         </ProtectedRoute>
         <ProtectedRoute exact isAuth={userInfo} path="/employee-list">
