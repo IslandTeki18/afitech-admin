@@ -13,6 +13,13 @@ import {
   projectDeleteReducer,
   projectUpdateReducer,
 } from "../reducers/project.reducers";
+import {
+  blogListReducer,
+  blogDetailsReducer,
+  blogCreateReducer,
+  blogRemoveReducer,
+  blogUpdateReducer,
+} from "../reducers/blog.reducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -22,7 +29,12 @@ const reducer = combineReducers({
   projectDetails: projectDetailsReducer,
   projectDelete: projectDeleteReducer,
   projectCreate: projectCreateReducer,
-  projectUpdate: projectUpdateReducer
+  projectUpdate: projectUpdateReducer,
+  blogList: blogListReducer,
+  blogDetails: blogDetailsReducer,
+  blogRemove: blogRemoveReducer,
+  blogCreate: blogCreateReducer,
+  blogUpdate: blogUpdateReducer,
 });
 
 const currentUserFromStorage = localStorage.getItem("userInfo")

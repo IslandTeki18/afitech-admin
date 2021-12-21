@@ -49,7 +49,13 @@ const ProjectDetailsPage = () => {
                 </div>
                 <div className="d-flex">
                   <h5 className="me-4">Created:</h5>
-                  <p>{project.createAt}</p>
+                  <p>
+                    {new Date(project.createdAt).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                    })}
+                  </p>
                 </div>
               </div>
               <div className="d-flex justify-content-between align-items-center">
