@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import parser from "html-react-parser";
 import "./BlogDetailsPage.scss";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -99,7 +100,7 @@ const BlogDetailsPage = () => {
         <div className="row">
           <div className="col-12 mb-4">
             <h5 className="pb-2">Content:</h5>
-            <p>{blog.content}</p>
+            <p>{parser(`${blog.content}`)}</p>
           </div>
         </div>
       </div>

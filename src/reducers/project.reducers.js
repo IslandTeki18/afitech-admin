@@ -75,11 +75,11 @@ export const projectCreateReducer = (state = {}, action) => {
 export const projectUpdateReducer = (state = { project: {} }, action) => {
   switch (action.type) {
     case PROJECT_UPDATE_REQUEST:
-      return { loading: false };
+      return { loading: true };
     case PROJECT_UPDATE_SUCCESS:
-      return { loading: true, success: true, project: action.payload };
+      return { loading: false, success: true, project: action.payload };
     case PROJECT_UPDATE_FAIL:
-      return { loading: true, error: action.payload };
+      return { loading: false, error: action.payload };
     case PROJECT_UPDATE_RESET:
       return { project: {} };
     default:

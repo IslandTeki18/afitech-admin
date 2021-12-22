@@ -23,7 +23,6 @@ const ProjectEditPage = () => {
     projectUrl: "",
     isPublished: false,
   });
-
   const projectDetails = useSelector((state) => state.projectDetails);
   const { loading, error, project } = projectDetails;
   const projectUpdate = useSelector((state) => state.projectUpdate);
