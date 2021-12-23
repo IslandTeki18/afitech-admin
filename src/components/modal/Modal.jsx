@@ -25,7 +25,6 @@ const Modal = (props) => {
               ></button>
             </div>
             <div className="modal-body">{props.children}</div>
-            
           </div>
         </div>
       </div>

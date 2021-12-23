@@ -14,7 +14,7 @@ const DataTable = (props) => {
     <div
       className={`rsDataTable ${props.isResponsive ? "table-responsive" : ""}`}
     >
-      <table className="table">
+      <table className="table table-striped">
         <thead>
           <tr>{renderTableHeader()}</tr>
         </thead>

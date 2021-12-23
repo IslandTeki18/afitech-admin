@@ -100,7 +100,7 @@ const BlogDetailsPage = () => {
         <div className="row">
           <div className="col-12 mb-4">
             <h5 className="pb-2">Content:</h5>
-            <p>{parser(`${blog.content}`)}</p>
+            <div>{parser(`${blog.content}`)}</div>
           </div>
         </div>
       </div>
