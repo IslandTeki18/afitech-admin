@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./ServiceListPage.scss";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  listServices,
-  createService,
-  deleteService,
-} from "../../actions/service.actions";
+import { listServices, deleteService } from "../../actions/service.actions";
 import DataTable from "../../components/dataTable/DataTable";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
@@ -21,14 +17,7 @@ const ServiceListPage = () => {
     loading: createLoading,
     error: createError,
     success: createSuccess,
-    service,
   } = serviceCreate;
-  const [serviceObj, setServiceObj] = useState({
-    title: "",
-    type: "",
-    shortDescription: "",
-    longDescription: "",
-  });
 
   useEffect(() => {
     window.scrollTo(0, "smooth");
@@ -48,14 +37,11 @@ const ServiceListPage = () => {
             <td>{item.isAvailable ? "True" : "False"}</td>
             <td>
               <div className="btn-group">
-                <Link
-                  to={`/service/${service._id}`}
-                  className="btn btn-primary"
-                >
+                <Link to={`/service/${item._id}`} className="btn btn-primary">
                   View
                 </Link>
                 <Link
-                  to={`/service/${service._id}/edit`}
+                  to={`/service/${item._id}/edit`}
                   className="btn btn-warning"
                 >
                   Edit
@@ -75,6 +61,11 @@ const ServiceListPage = () => {
         <h1 className="display-4 text-uppercase">Service List</h1>
         {error && <Message variant="danger">{error}</Message>}
         {createError && <Message variant="danger">{createError}</Message>}
+        {createSuccess && (
+          <Message variant="success" isDismissable>
+            Service Created
+          </Message>
+        )}
         <div className="row">
           <div className="col-lg-9">
             {loading || createLoading ? (

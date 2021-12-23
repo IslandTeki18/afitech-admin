@@ -3,13 +3,17 @@ import PropTypes from "prop-types";
 
 const TextAreaLabel = (props) => {
   return (
-    <div className="dkTextAreaLabel">
+    <div
+      className={`dkTextAreaLabel ${props.className ? props.className : ""}`}
+    >
       <div className="d-flex flex-column">
         <label htmlFor={props.id} className="pb-2">
           {props.labelText}
         </label>
         <textarea
-          className={props.className ? props.className : "form-control"}
+          className={
+            props.textAreaClassName ? props.textAreaClassName : "form-control"
+          }
           rows={props.rows}
           placeholder={props.placeholder}
           value={props.value}
@@ -22,6 +26,7 @@ const TextAreaLabel = (props) => {
 };
 
 TextAreaLabel.propTypes = {
+  textAreaClassName: PropTypes.string,
   className: PropTypes.string,
   placeholder: PropTypes.string,
   id: PropTypes.string,

@@ -47,10 +47,10 @@ function App() {
         <ProtectedRoute exact isAuth={userInfo} path="/service-list">
           <ServiceListPage />
         </ProtectedRoute>
-        <ProtectedRoute isAuth={userInfo} path="/service/edit">
+        <ProtectedRoute exact isAuth={userInfo} path="/service/:serviceId/edit">
           <ServiceEditPage />
         </ProtectedRoute>
-        <ProtectedRoute isAuth={userInfo} path="/service/details">
+        <ProtectedRoute exact isAuth={userInfo} path="/service/:id">
           <ServiceDetailsPage />
         </ProtectedRoute>
         <ProtectedRoute exact isAuth={userInfo} path="/testimonial-list">
