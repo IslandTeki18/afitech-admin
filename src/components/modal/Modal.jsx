@@ -7,7 +7,7 @@ const Modal = (props) => {
       <div
         className="modal fade"
         id={props.modalId}
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="dynamicLabel"
         aria-hidden="true"
       >

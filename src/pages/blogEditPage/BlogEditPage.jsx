@@ -13,16 +13,6 @@ const BlogEditPage = () => {
   const { blogId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
-  const [blogObj, setBlogObj] = useState({
-    _id: blogId,
-    title: "",
-    type: "",
-    shortDescription: "",
-    longDescription: "",
-    author: "",
-    content: "",
-    isPublished: false,
-  });
   const blogDetails = useSelector((state) => state.blogDetails);
   const { loading, error, blog } = blogDetails;
   const blogUpdate = useSelector((state) => state.blogUpdate);
@@ -31,6 +21,16 @@ const BlogEditPage = () => {
     error: updateError,
     success: updateSuccess,
   } = blogUpdate;
+  const [blogObj, setBlogObj] = useState({
+    _id: blogId,
+    title: "" || blog.title,
+    type: "" || blog.type,
+    shortDescription: "" || blog.shortDescription,
+    longDescription: "" || blog.longDescription,
+    author: "" || blog.author,
+    content: "" || blog.content,
+    isPublished: false || blog.isPublished,
+  });
 
   useEffect(() => {
     window.scrollTo(0, "smooth");
@@ -41,6 +41,9 @@ const BlogEditPage = () => {
     if (!blog || blogId !== blog._id) {
       dispatch(detailBlog(blogId));
     }
+  }, [dispatch, blogId, blog, updateSuccess, history]);
+
+  useEffect(() => {
     if (blog) {
       setBlogObj((prevState) => {
         return {
@@ -55,11 +58,23 @@ const BlogEditPage = () => {
         };
       });
     }
-  }, [dispatch, blogId, blog, updateSuccess, history]);
+  }, [dispatch, blog]);
 
   function submitHandler(e) {
     e.preventDefault();
-    dispatch(updateBlog(blogObj));
+    console.log(blogObj);
+    dispatch(
+      updateBlog({
+        _id: blogId,
+        title: blogObj.title,
+        type: blogObj.type,
+        shortDescription: blogObj.shortDescription,
+        longDescription: blogObj.longDescription,
+        author: blogObj.author,
+        content: blogObj.content,
+        isPublished: blogObj.isPublished,
+      })
+    );
   }
   function ckContentHandler(data) {
     setBlogObj((prevState) => {
@@ -176,28 +191,10 @@ const BlogEditPage = () => {
                 </div>
                 <div className="mb-3">
                   <InputLabel
-                    inputId="blogSlugInputLabel"
-                    type="text"
-                    labelText="Slug"
-                    placeholder="Slug..."
-                    value={blogObj.slug}
-                    onChange={(e) =>
-                      setBlogObj((prevState) => {
-                        return {
-                          ...prevState,
-                          slug: e.target.value,
-                        };
-                      })
-                    }
-                  />
-                </div>
-                <div className="mb-3">
-                  <InputLabel
                     inputId="publishedChecked"
                     type="checkbox"
-                    isToggle
                     labelText="Is Published"
-                    value={blogObj.isPublished}
+                    checked={blogObj.isPublished}
                     onChange={(e) =>
                       setBlogObj((prevState) => {
                         return {

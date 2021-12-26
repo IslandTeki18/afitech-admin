@@ -22,6 +22,7 @@ const InputLabel = (props) => {
         onChange={props.onChange}
         value={props.value}
         checked={props.checked}
+        defaultChecked={props.defaultChecked}
       />
     </div>
   );
@@ -39,6 +40,7 @@ InputLabel.propTypes = {
   value: PropTypes.any,
   checked: PropTypes.bool,
   isToggle: PropTypes.bool,
+  defaultChecked: PropTypes.bool,
 };
 
 export default InputLabel;

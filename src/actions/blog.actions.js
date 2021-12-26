@@ -60,6 +60,7 @@ export const createBlog =
       } = getState();
       const config = {
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
@@ -112,6 +113,7 @@ export const updateBlog = (blog) => async (dispatch, getState) => {
     } = getState();
     const config = {
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
