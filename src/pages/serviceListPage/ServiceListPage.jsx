@@ -18,11 +18,23 @@ const ServiceListPage = () => {
     error: createError,
     success: createSuccess,
   } = serviceCreate;
+  const serviceDelete = useSelector((state) => state.serviceDelete);
+  const {
+    loading: deleteLoading,
+    error: deleteError,
+    success: deleteSuccess,
+  } = serviceDelete;
 
   useEffect(() => {
     window.scrollTo(0, "smooth");
     dispatch(listServices());
-  }, [dispatch, createSuccess]);
+  }, [dispatch, createSuccess, deleteSuccess]);
+
+  function deleteServiceHandler(id) {
+    if (window.confirm("Are you sure you want to delete this service?")) {
+      dispatch(deleteService(id));
+    }
+  }
 
   function renderDataTable() {
     const tableHeaderColumn = ["id", "title", "type", "isAvailable"];
@@ -46,7 +58,12 @@ const ServiceListPage = () => {
                 >
                   Edit
                 </Link>
-                <button className="btn btn-danger">Delete</button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => deleteServiceHandler(item._id)}
+                >
+                  Delete
+                </button>
               </div>
             </td>
           </tr>
@@ -61,14 +78,20 @@ const ServiceListPage = () => {
         <h1 className="display-4 text-uppercase">Service List</h1>
         {error && <Message variant="danger">{error}</Message>}
         {createError && <Message variant="danger">{createError}</Message>}
+        {deleteError && <Message variant="danger">{deleteError}</Message>}
         {createSuccess && (
           <Message variant="success" isDismissable>
             Service Created
           </Message>
         )}
+        {deleteSuccess && (
+          <Message variant="success" isDismissable>
+            Service Deleted
+          </Message>
+        )}
         <div className="row">
           <div className="col-lg-9">
-            {loading || createLoading ? (
+            {loading || createLoading || deleteLoading ? (
               <div className="d-flex justify-content-center">
                 <Loader />
               </div>
