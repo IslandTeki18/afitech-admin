@@ -27,6 +27,13 @@ import {
   serviceDeleteReducer,
   serviceUpdateReducer,
 } from "../reducers/service.reducers";
+import {
+  employeeListReducer,
+  employeeDetailsReducer,
+  employeeCreateReducer,
+  employeeDeleteReducer,
+  employeeUpdateReducer,
+} from "../reducers/employee.reducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -47,6 +54,11 @@ const reducer = combineReducers({
   serviceDelete: serviceDeleteReducer,
   serviceCreate: serviceCreateReducer,
   serviceUpdate: serviceUpdateReducer,
+  employeeList: employeeListReducer,
+  employeeDetails: employeeDetailsReducer,
+  employeeDelete: employeeDeleteReducer,
+  employeeCreate: employeeCreateReducer,
+  employeeUpdate: employeeUpdateReducer,
 });
 
 const currentUserFromStorage = localStorage.getItem("userInfo")
