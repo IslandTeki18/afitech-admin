@@ -62,7 +62,6 @@ const BlogEditPage = () => {
 
   function submitHandler(e) {
     e.preventDefault();
-    console.log(blogObj);
     dispatch(
       updateBlog({
         _id: blogId,

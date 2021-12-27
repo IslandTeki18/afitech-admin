@@ -17,7 +17,6 @@ const BlogDetailsPage = () => {
     window.scrollTo(0, "smooth");
     dispatch(detailBlog(id));
   }, [dispatch, id]);
-  console.log(blog);
 
   return (
     <div className="dkBlogDetailsPage">
