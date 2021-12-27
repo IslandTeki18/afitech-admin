@@ -20,7 +20,7 @@ const ServiceDetailsPage = () => {
     <div className="dkServiceDetailsPage">
       <div className="container fullScreen">
         <div className="d-flex justify-content-between align-items-center py-3">
-          <h2>Service Title Here</h2>
+          <h2>{service.title}</h2>
           <Link to="/service-list" className="btn btn-secondary">
             back
           </Link>
