@@ -65,11 +65,18 @@ const EmployeeDetailsPage = () => {
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="d-flex">
                     <h5 className="me-4">Is Active:</h5>
-                    <p className={employee.isActive ? "success" : "danger"}>
+                    <p
+                      className={`text-${
+                        employee.isActive ? "success" : "danger"
+                      }`}
+                    >
                       {employee.isActive ? "Yes" : "No"}
                     </p>
                   </div>
-                  <Link to="/employee/edit" className="btn btn-secondary">
+                  <Link
+                    to={`/employee/${employee._id}/edit`}
+                    className="btn btn-secondary"
+                  >
                     Edit
                   </Link>
                 </div>

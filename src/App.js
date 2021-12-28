@@ -77,7 +77,7 @@ function App() {
         <ProtectedRoute
           exact
           isAuth={userInfo}
-          path="/employee/:emplopyeeId/edit"
+          path="/employee/:employeeId/edit"
         >
           <EmployeeEditPage />
         </ProtectedRoute>
