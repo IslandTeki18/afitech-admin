@@ -1,3 +1,6 @@
 .fullScreen {
-    min-height: 100vh;
+  min-height: 100vh;
+}
+.cursorPointer {
+  cursor: pointer;
 }

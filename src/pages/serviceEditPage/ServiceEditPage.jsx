@@ -53,7 +53,7 @@ const ServiceEditPage = () => {
         };
       });
     }
-  }, [service, dispatch]);
+  }, [service]);
 
   function onSubmitHandler() {
     dispatch(

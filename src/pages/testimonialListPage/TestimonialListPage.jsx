@@ -59,6 +59,7 @@ const TestimonialListPage = () => {
               data-bs-toggle="tooltip"
               data-bs-placement="top"
               title={item._id}
+              className="cursorPointer"
             >
               {idx + 1}
             </th>

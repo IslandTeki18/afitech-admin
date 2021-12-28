@@ -21,7 +21,7 @@ const TestimonialDetailsPage = () => {
       <div className="container fullScreen">
         <div className="d-flex justify-content-between align-items-center py-3">
           <h2>{testimonial.name}</h2>
-          <Link to="/project-list" className="btn btn-secondary">
+          <Link to="/testimonial-list" className="btn btn-secondary">
             back
           </Link>
         </div>
@@ -79,6 +79,10 @@ const TestimonialDetailsPage = () => {
               </div>
               <div className="col-lg-6">
                 <div className="d-flex mb-2">
+                  <h5 className="me-4">Company Name:</h5>
+                  <p>{testimonial.companyName}</p>
+                </div>
+                <div className="d-flex mb-2">
                   <h5 className="me-4">Position at Company:</h5>
                   <p>{testimonial.clientCompanyPosition}</p>
                 </div>
@@ -91,7 +95,7 @@ const TestimonialDetailsPage = () => {
                   <p>{testimonial.companyLocation}</p>
                 </div>
                 <div className="testimonialWrapper mb-4">
-                  <h5 className="mb-2"> Testimonail:</h5>
+                  <h5 className="mb-2"> Testimonial:</h5>
                   <p>{testimonial.testimonial}</p>
                 </div>
               </div>
