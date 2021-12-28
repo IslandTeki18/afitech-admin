@@ -34,6 +34,13 @@ import {
   employeeDeleteReducer,
   employeeUpdateReducer,
 } from "../reducers/employee.reducers";
+import {
+  testimonialListReducer,
+  testimonialDetailsReducer,
+  testimonialCreateReducer,
+  testimonialDeleteReducer,
+  testimonialUpdateReducer,
+} from "../reducers/testimonial.reducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -59,6 +66,11 @@ const reducer = combineReducers({
   employeeDelete: employeeDeleteReducer,
   employeeCreate: employeeCreateReducer,
   employeeUpdate: employeeUpdateReducer,
+  testimonialList: testimonialListReducer,
+  testimonialDetails: testimonialDetailsReducer,
+  testimonialDelete: testimonialDeleteReducer,
+  testimonialCreate: testimonialCreateReducer,
+  testimonialUpdate: testimonialUpdateReducer,
 });
 
 const currentUserFromStorage = localStorage.getItem("userInfo")
