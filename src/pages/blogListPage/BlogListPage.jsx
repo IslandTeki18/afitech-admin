@@ -70,7 +70,15 @@ const BlogListPage = () => {
         tableHeaderColumns={tableHeaderColumn}
         tableBodyRows={blogs.map((item, idx) => (
           <tr key={idx}>
-            <th scope="row">{item._id}</th>
+            <th
+              scope="row"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title={item._id}
+              className="cursorPointer"
+            >
+              {idx + 1}
+            </th>
             <td>{item.title}</td>
             <td>{item.type}</td>
             <td>{item.isPublished ? "True" : "False"}</td>

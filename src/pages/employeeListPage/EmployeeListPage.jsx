@@ -41,9 +41,17 @@ const EmployeeListPage = () => {
       <DataTable
         isResponsive
         tableHeaderColumns={tableHeaderColumn}
-        tableBodyRows={employees.map((item) => (
-          <tr>
-            <th scope="row">{item._id}</th>
+        tableBodyRows={employees.map((item, idx) => (
+          <tr key={idx}>
+            <th
+              scope="row"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title={item._id}
+              className="cursorPointer"
+            >
+              {idx + 1}
+            </th>
             <td>
               {item.firstName} {item.lastName}
             </td>

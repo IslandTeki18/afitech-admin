@@ -41,9 +41,17 @@ const ServiceListPage = () => {
     return (
       <DataTable
         tableHeaderColumns={tableHeaderColumn}
-        tableBodyRows={services.map((item) => (
-          <tr>
-            <th scope="row">{item._id}</th>
+        tableBodyRows={services.map((item, idx) => (
+          <tr key={idx}>
+            <th
+              scope="row"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title={item._id}
+              className="cursorPointer"
+            >
+              {idx + 1}
+            </th>
             <td>{item.title}</td>
             <td>{item.type}</td>
             <td>{item.isAvailable ? "True" : "False"}</td>

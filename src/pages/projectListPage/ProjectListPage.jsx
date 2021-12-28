@@ -73,7 +73,15 @@ const ProjectListPage = () => {
         tableHeaderColumns={tableHeaderColumn}
         tableBodyRows={projects.map((item, idx) => (
           <tr key={idx}>
-            <th scope="row">{item._id}</th>
+            <th
+              scope="row"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title={item._id}
+              className="cursorPointer"
+            >
+              {idx + 1}
+            </th>
             <td>{item.title}</td>
             <td>{item.slug}</td>
             <td>{item.isPublished ? "True" : "False"}</td>
