@@ -40,14 +40,7 @@ const TestimonialListPage = () => {
   }
 
   function renderDataTable() {
-    const tableHeaderColumn = [
-      "id",
-      "name",
-      "position",
-      "company",
-      "location",
-      "isActive",
-    ];
+    const tableHeaderColumn = ["ID", "Name", "Company", "Is Active"];
     return (
       <DataTable
         isResponsive
@@ -64,9 +57,7 @@ const TestimonialListPage = () => {
               {idx + 1}
             </th>
             <td>{item.name}</td>
-            <td>{item.clientCompanyPosition}</td>
             <td>{item.companyName}</td>
-            <td>{item.companyLocation}</td>
             <td>{item.isActive ? "True" : "False"}</td>
             <td>
               <div className="btn-group">
@@ -129,7 +120,7 @@ const TestimonialListPage = () => {
               <div className="card-body">
                 <button
                   type="button"
-                  class="btn btn-link"
+                  className="btn btn-link"
                   data-bs-toggle="modal"
                   data-bs-target="#createTestimonialId"
                 >

@@ -119,7 +119,7 @@ const ServiceListPage = () => {
               <div className="card-body">
                 <button
                   type="button"
-                  class="btn btn-link"
+                  className="btn btn-link"
                   data-bs-toggle="modal"
                   data-bs-target="#createServiceId"
                 >

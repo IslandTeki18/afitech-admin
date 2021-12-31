@@ -52,7 +52,6 @@ const BlogEditPage = () => {
       });
     }
   }, [dispatch, blogId, blog, updateSuccess, history]);
-  console.log(blog);
 
   function submitHandler(e) {
     e.preventDefault();

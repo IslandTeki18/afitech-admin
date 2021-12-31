@@ -111,21 +111,24 @@ const TestimonialEditPage = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <InputLabel
-                    inputId="activeChecked"
-                    type="checkbox"
-                    isToggle
-                    labelText="Is Testimonial Active"
+                  <label htmlFor="isActiveSelect" className="mb-2">
+                    Is Testimonial Active
+                  </label>
+                  <select
+                    id="isActiveSelect"
+                    className="form-select"
+                    aria-label="isActiveSelect"
                     value={testimonialObj.isActive}
                     onChange={(e) =>
-                      setTestimonialObj((prevState) => {
-                        return {
-                          ...prevState,
-                          isActive: e.target.check,
-                        };
+                      setTestimonialObj({
+                        ...testimonialObj,
+                        isActive: e.target.value,
                       })
                     }
-                  />
+                  >
+                    <option value={true}>True</option>
+                    <option value={false}>False</option>
+                  </select>
                 </div>
               </div>
               <div className="col-md-6">

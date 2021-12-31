@@ -18,8 +18,6 @@ const BlogDetailsPage = () => {
     dispatch(detailBlog(id));
   }, [dispatch, id]);
 
-  console.log(blog);
-
   return (
     <div className="dkBlogDetailsPage">
       <div className="container">

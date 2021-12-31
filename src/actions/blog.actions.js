@@ -14,9 +14,6 @@ import {
   BLOG_UPDATE_REQUEST,
   BLOG_UPDATE_SUCCESS,
   BLOG_UPDATE_FAIL,
-  BLOG_PUBLISH_REQUEST,
-  BLOG_PUBLISH_SUCCESS,
-  BLOG_PUBLISH_FAIL,
 } from "../constants/blog.constants";
 import axios from "axios";
 const serverUrl = "https://protected-oasis-46723.herokuapp.com/api/blogs";
