@@ -222,21 +222,24 @@ const ProjectEditPage = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <InputLabel
-                    inputId="publishedChecked"
-                    type="checkbox"
-                    isToggle
-                    labelText="Is Published"
+                  <label htmlFor="isPublishedSelect" className="mb-2">
+                    Is Project Published
+                  </label>
+                  <select
+                    id="isPublishedSelect"
+                    className="form-select"
+                    aria-label="isPublishedSelect"
                     value={projectObj.isPublished}
                     onChange={(e) =>
-                      setProjectObj((prevState) => {
-                        return {
-                          ...prevState,
-                          isPublished: e.target.checked,
-                        };
+                      setProjectObj({
+                        ...projectObj,
+                        isPublished: e.target.value,
                       })
                     }
-                  />
+                  >
+                    <option value={true}>True</option>
+                    <option value={false}>False</option>
+                  </select>
                 </div>
               </div>
             </div>

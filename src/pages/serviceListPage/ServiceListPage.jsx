@@ -37,7 +37,7 @@ const ServiceListPage = () => {
   }
 
   function renderDataTable() {
-    const tableHeaderColumn = ["id", "title", "type", "isAvailable"];
+    const tableHeaderColumn = ["id", "title", "type", "Is Available"];
     return (
       <DataTable
         tableHeaderColumns={tableHeaderColumn}
@@ -54,7 +54,13 @@ const ServiceListPage = () => {
             </th>
             <td>{item.title}</td>
             <td>{item.type}</td>
-            <td>{item.isAvailable ? "True" : "False"}</td>
+            <td>
+              {item.isAvailable ? (
+                <p className="text-success">Yes</p>
+              ) : (
+                <p className="text-danger">No</p>
+              )}
+            </td>
             <td>
               <div className="btn-group">
                 <Link to={`/service/${item._id}`} className="btn btn-primary">

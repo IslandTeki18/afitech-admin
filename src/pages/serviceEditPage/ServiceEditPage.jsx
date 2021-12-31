@@ -180,26 +180,26 @@ const ServiceEditPage = () => {
                   />
                 </div>
                 <p>Put Service Features Here.</p>
-                <div className="mb-3">
-                  <InputLabel
-                    inputId="availableChecked"
-                    type="checkbox"
-                    isToggle
-                    labelText="Is Available"
-                    checked={serviceObj.isAvailable}
-                    onChange={(e) =>
-                      setServiceObj((prevState) => {
-                        return {
-                          ...prevState,
-                          isAvailable: e.target.checked,
-                        };
-                      })
-                    }
-                  />
-                </div>
+                <label htmlFor="isAvailableSelect" className="mb-2">
+                  Is Service Available
+                </label>
+                <select
+                  id="isAvailableSelect"
+                  className="form-select"
+                  aria-label="isAvailableSelect"
+                  value={serviceObj.isAvailable}
+                  onChange={(e) =>
+                    setServiceObj({
+                      ...serviceObj,
+                      isAvailable: e.target.value,
+                    })
+                  }
+                >
+                  <option value={true}>True</option>
+                  <option value={false}>False</option>
+                </select>
               </div>
             </div>
-
             <div className="row mb-4">
               <div className="col-6 d-grid ">
                 <button type="submit" className="btn btn-primary">

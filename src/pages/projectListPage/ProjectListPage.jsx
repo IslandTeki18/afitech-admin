@@ -66,7 +66,7 @@ const ProjectListPage = () => {
   }
 
   function renderDataTable() {
-    const tableHeaderColumn = ["id", "title", "slug", "isPublished", "status"];
+    const tableHeaderColumn = ["ID", "Title", "Slug", "Is Published", "Status"];
     return (
       <DataTable
         isResponsive
@@ -84,7 +84,13 @@ const ProjectListPage = () => {
             </th>
             <td>{item.title}</td>
             <td>{item.slug}</td>
-            <td>{item.isPublished ? "True" : "False"}</td>
+            <td>
+              {item.isPublished ? (
+                <p className="text-success">Yes</p>
+              ) : (
+                <p className="text-danger">No</p>
+              )}
+            </td>
             <td>{item.projectStatus}</td>
             <td>
               <div className="btn-group">

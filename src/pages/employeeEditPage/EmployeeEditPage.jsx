@@ -172,6 +172,24 @@ const EmployeeEditPage = () => {
                       })
                     }
                   />
+                  <label htmlFor="isActiveSelect" className="mb-2">
+                    Is Employee Active
+                  </label>
+                  <select
+                    id="isActiveSelect"
+                    className="form-select"
+                    aria-label="isActiveSelect"
+                    value={employeeObj.isActive}
+                    onChange={(e) =>
+                      setEmployeeObj({
+                        ...employeeObj,
+                        isActive: e.target.value,
+                      })
+                    }
+                  >
+                    <option value={true}>True</option>
+                    <option value={false}>False</option>
+                  </select>
                 </div>
               </div>
               <div className="col-md-6">
