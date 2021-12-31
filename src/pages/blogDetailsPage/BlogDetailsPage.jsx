@@ -18,6 +18,8 @@ const BlogDetailsPage = () => {
     dispatch(detailBlog(id));
   }, [dispatch, id]);
 
+  console.log(blog);
+
   return (
     <div className="dkBlogDetailsPage">
       <div className="container">
@@ -43,11 +45,11 @@ const BlogDetailsPage = () => {
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="d-flex">
-                    <h5 className="me-4">Author:</h5>
+                    <h5 className="me-2">Author:</h5>
                     <p>{blog.author}</p>
                   </div>
                   <div className="d-flex">
-                    <h5 className="me-4">Created:</h5>
+                    <h5 className="me-2">Created:</h5>
                     <p>
                       {new Date(blog.createdAt).toLocaleDateString("en-US", {
                         year: "numeric",

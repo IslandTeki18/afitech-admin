@@ -23,13 +23,13 @@ const BlogEditPage = () => {
   } = blogUpdate;
   const [blogObj, setBlogObj] = useState({
     _id: blogId,
-    title: "" || blog.title,
-    type: "" || blog.type,
-    shortDescription: "" || blog.shortDescription,
-    longDescription: "" || blog.longDescription,
-    author: "" || blog.author,
-    content: "" || blog.content,
-    isPublished: false || blog.isPublished,
+    title: "",
+    type: "",
+    shortDescription: "",
+    longDescription: "",
+    author: "",
+    content: "",
+    isPublished: false,
   });
 
   useEffect(() => {
@@ -40,25 +40,19 @@ const BlogEditPage = () => {
     }
     if (!blog || blogId !== blog._id) {
       dispatch(detailBlog(blogId));
-    }
-  }, [dispatch, blogId, blog, updateSuccess, history]);
-
-  useEffect(() => {
-    if (blog) {
-      setBlogObj((prevState) => {
-        return {
-          ...prevState,
-          title: blog.title,
-          type: blog.type,
-          shortDescription: blog.shortDescription,
-          longDescription: blog.longDescription,
-          author: blog.author,
-          content: blog.content,
-          isPublished: blog.isPublished,
-        };
+    } else {
+      setBlogObj({
+        title: blog.title,
+        type: blog.type,
+        shortDescription: blog.shortDescription,
+        longDescription: blog.longDescription,
+        author: blog.author,
+        content: blog.content,
+        isPublished: blog.isPublished,
       });
     }
-  }, [dispatch, blog]);
+  }, [dispatch, blogId, blog, updateSuccess, history]);
+  console.log(blog);
 
   function submitHandler(e) {
     e.preventDefault();
@@ -75,13 +69,9 @@ const BlogEditPage = () => {
       })
     );
   }
+
   function ckContentHandler(data) {
-    setBlogObj((prevState) => {
-      return {
-        ...prevState,
-        content: data,
-      };
-    });
+    setBlogObj({ ...blogObj, content: data });
   }
   return (
     <div className="dkBlogEditPage">
@@ -124,12 +114,7 @@ const BlogEditPage = () => {
                     placeholder="Type..."
                     value={blogObj.type}
                     onChange={(e) =>
-                      setBlogObj((prevState) => {
-                        return {
-                          ...prevState,
-                          type: e.target.value,
-                        };
-                      })
+                      setBlogObj({ ...blogObj, type: e.target.value })
                     }
                   />
                 </div>
@@ -143,11 +128,9 @@ const BlogEditPage = () => {
                     placeholder="Title..."
                     value={blogObj.title}
                     onChange={(e) =>
-                      setBlogObj((prevState) => {
-                        return {
-                          ...prevState,
-                          title: e.target.value,
-                        };
+                      setBlogObj({
+                        ...blogObj,
+                        title: e.target.value,
                       })
                     }
                   />
@@ -161,11 +144,9 @@ const BlogEditPage = () => {
                     placeholder="Short Description..."
                     value={blogObj.shortDescription}
                     onChange={(e) =>
-                      setBlogObj((prevState) => {
-                        return {
-                          ...prevState,
-                          shortDescription: e.target.value,
-                        };
+                      setBlogObj({
+                        ...blogObj,
+                        shortDescription: e.target.value,
                       })
                     }
                   />
@@ -179,30 +160,32 @@ const BlogEditPage = () => {
                     placeholder="Long Description..."
                     value={blogObj.longDescription}
                     onChange={(e) =>
-                      setBlogObj((prevState) => {
-                        return {
-                          ...prevState,
-                          longDescription: e.target.value,
-                        };
+                      setBlogObj({
+                        ...blogObj,
+                        longDescription: e.target.value,
                       })
                     }
                   />
                 </div>
                 <div className="mb-3">
-                  <InputLabel
-                    inputId="publishedChecked"
-                    type="checkbox"
-                    labelText="Is Published"
-                    checked={blogObj.isPublished}
+                  <label htmlFor="isPublishedSelect" className="mb-2">
+                    Is Blog Published
+                  </label>
+                  <select
+                    id="isPublishedSelect"
+                    className="form-select"
+                    aria-label="isPublishedSelect"
+                    value={blogObj.isPublished}
                     onChange={(e) =>
-                      setBlogObj((prevState) => {
-                        return {
-                          ...prevState,
-                          isPublished: e.target.checked,
-                        };
+                      setBlogObj({
+                        ...blogObj,
+                        isPublished: e.target.value,
                       })
                     }
-                  />
+                  >
+                    <option value={true}>True</option>
+                    <option value={false}>False</option>
+                  </select>
                 </div>
               </div>
             </div>

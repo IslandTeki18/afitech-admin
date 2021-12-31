@@ -33,7 +33,6 @@ const LoginPage = () => {
           <div className="bg-secondary col-lg-6 d-none d-xl-block" />
           <div className="fullScreen col-md-12 col-xl-6 d-flex align-items-center">
             <div className="container">
-              {error && <Message variant="danger">{error}</Message>}
               <div className="row">
                 {loading ? (
                   <div className="d-flex justify-content-center">
@@ -44,6 +43,7 @@ const LoginPage = () => {
                     <div className="card p-md-5 shadow-lg border-0">
                       <div className="card-body">
                         <h1 className="text-center pb-md-3">AFI ADMIN</h1>
+                        {error && <Message variant="danger">{error}</Message>}
                         <form onSubmit={onSubmitForm}>
                           <div className="mb-4">
                             <InputLabel

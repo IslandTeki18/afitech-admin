@@ -12,7 +12,7 @@ const InputLabel = (props) => {
         {props.labelText}
       </label>
       <input
-        type={props.type}
+        type={props.type || "text"}
         className={
           props.type === "checkbox" ? "form-check-input" : "form-control"
         }
@@ -38,11 +38,15 @@ InputLabel.propTypes = {
   labelText: PropTypes.string,
   isRequired: PropTypes.bool,
   onChange: PropTypes.func,
-  value: PropTypes.any,
+  value: PropTypes.string || PropTypes.bool,
   checked: PropTypes.bool,
   isToggle: PropTypes.bool,
   defaultChecked: PropTypes.bool,
   isDisabled: PropTypes.bool,
+};
+
+InputLabel.defaultProps = {
+  type: "text",
 };
 
 export default InputLabel;
