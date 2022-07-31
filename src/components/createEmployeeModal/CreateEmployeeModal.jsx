@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { createEmployee } from "../../actions/employee.actions";
+import { createEmployee } from "../../redux/actions/employee.actions";
 import Modal from "../modal/Modal";
 import InputLabel from "../inputLabel/InputLabel";
 import TextAreaLabel from "../textAreaLabel/TextAreaLabel";

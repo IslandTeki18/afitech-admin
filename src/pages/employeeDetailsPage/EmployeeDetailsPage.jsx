@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "./EmployeeDetailsPage.scss";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailEmployee } from "../../actions/employee.actions";
+import { detailEmployee } from "../../redux/actions/employee.actions";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 

@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 import { useDispatch, useSelector } from "react-redux";
-import { detailsProject } from "../../actions/project.actions";
+import { detailsProject } from "../../redux/actions/project.actions";
 
 const ProjectDetailsPage = () => {
   const dispatch = useDispatch();

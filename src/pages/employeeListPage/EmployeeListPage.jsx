@@ -5,7 +5,7 @@ import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { listEmployees, deleteEmployee } from "../../actions/employee.actions";
+import { listEmployees, deleteEmployee } from "../../redux/actions/employee.actions";
 import CreateEmployeeModal from "../../components/createEmployeeModal/CreateEmployeeModal";
 
 const EmployeeListPage = () => {

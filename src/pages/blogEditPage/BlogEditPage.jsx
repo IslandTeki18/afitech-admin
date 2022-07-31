@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./BlogEditPage.scss";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailBlog, updateBlog } from "../../actions/blog.actions";
+import { detailBlog, updateBlog } from "../../redux/actions/blog.actions";
 import InputLabel from "../../components/inputLabel/InputLabel";
 import RichTextEditor from "../../components/richTextEditor/RichTextEditor";
 import Loader from "../../components/loader/Loader";

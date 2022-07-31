@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./LoginPage.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { login } from "../../actions/user.actions";
+import { login } from "../../redux/actions/user.actions";
 import InputLabel from "../../components/inputLabel/InputLabel";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";

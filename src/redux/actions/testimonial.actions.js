@@ -18,7 +18,7 @@ import {
 import axios from "axios";
 
 const serverUrl =
-  "https://protected-oasis-46723.herokuapp.com/api/testimonials";
+process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/testimonials` : 'api/testimonials';
 
 export const listTestimonials = () => async (dispatch) => {
   try {

@@ -4,7 +4,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import TextAreaLabel from "../../components/textAreaLabel/TextAreaLabel";
 import InputLabel from "../../components/inputLabel/InputLabel";
-import { detailEmployee, updateEmployee } from "../../actions/employee.actions";
+import { detailEmployee, updateEmployee } from "../../redux/actions/employee.actions";
 import { EMPLOYEE_UPDATE_RESET } from "../../constants/employee.constants";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";

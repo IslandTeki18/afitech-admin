@@ -1,32 +1,31 @@
 import {
-  EMPLOYEE_LIST_REQUEST,
-  EMPLOYEE_LIST_SUCCESS,
-  EMPLOYEE_LIST_FAIL,
-  EMPLOYEE_DETAILS_REQUEST,
-  EMPLOYEE_DETAILS_SUCCESS,
-  EMPLOYEE_DETAILS_FAIL,
-  EMPLOYEE_CREATE_REQUEST,
-  EMPLOYEE_CREATE_SUCCESS,
-  EMPLOYEE_CREATE_FAIL,
-  EMPLOYEE_DELETE_REQUEST,
-  EMPLOYEE_DELETE_SUCCESS,
-  EMPLOYEE_DELETE_FAIL,
-  EMPLOYEE_UPDATE_REQUEST,
-  EMPLOYEE_UPDATE_SUCCESS,
-  EMPLOYEE_UPDATE_FAIL,
-} from "../constants/employee.constants";
+  BLOG_LIST_REQUEST,
+  BLOG_LIST_SUCCESS,
+  BLOG_LIST_FAIL,
+  BLOG_DETAILS_REQUEST,
+  BLOG_DETAILS_SUCCESS,
+  BLOG_DETAILS_FAIL,
+  BLOG_CREATE_REQUEST,
+  BLOG_CREATE_SUCCESS,
+  BLOG_CREATE_FAIL,
+  BLOG_REMOVE_REQUEST,
+  BLOG_REMOVE_SUCCESS,
+  BLOG_REMOVE_FAIL,
+  BLOG_UPDATE_REQUEST,
+  BLOG_UPDATE_SUCCESS,
+  BLOG_UPDATE_FAIL,
+} from "../constants/blog.constants";
 import axios from "axios";
+const serverUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/blogs` : 'api/blogs';
 
-const serverUrl = "https://protected-oasis-46723.herokuapp.com/api/employees";
-
-export const listEmployees = () => async (dispatch) => {
+export const listBlogs = () => async (dispatch) => {
   try {
-    dispatch({ type: EMPLOYEE_LIST_REQUEST });
+    dispatch({ type: BLOG_LIST_REQUEST });
     const { data } = await axios.get(`${serverUrl}`);
-    dispatch({ type: EMPLOYEE_LIST_SUCCESS, payload: data });
+    dispatch({ type: BLOG_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_LIST_FAIL,
+      type: BLOG_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -35,14 +34,14 @@ export const listEmployees = () => async (dispatch) => {
   }
 };
 
-export const detailEmployee = (id) => async (dispatch) => {
+export const detailBlog = (id) => async (dispatch) => {
   try {
-    dispatch({ type: EMPLOYEE_DETAILS_REQUEST });
+    dispatch({ type: BLOG_DETAILS_REQUEST });
     const { data } = await axios.get(`${serverUrl}/${id}`);
-    dispatch({ type: EMPLOYEE_DETAILS_SUCCESS, payload: data });
+    dispatch({ type: BLOG_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_DETAILS_FAIL,
+      type: BLOG_DETAILS_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -51,11 +50,11 @@ export const detailEmployee = (id) => async (dispatch) => {
   }
 };
 
-export const createEmployee =
-  (firstName, lastName, phone, email, isActive, position, aboutEmployee) =>
+export const createBlog =
+  (title, type, shortDescription, longDescription, content) =>
   async (dispatch, getState) => {
     try {
-      dispatch({ type: EMPLOYEE_CREATE_REQUEST });
+      dispatch({ type: BLOG_CREATE_REQUEST });
       const {
         userLogin: { userInfo },
       } = getState();
@@ -67,21 +66,13 @@ export const createEmployee =
       };
       const { data } = await axios.post(
         `${serverUrl}`,
-        {
-          firstName,
-          lastName,
-          phone,
-          email,
-          isActive,
-          position,
-          aboutEmployee,
-        },
+        { title, type, shortDescription, longDescription, content },
         config
       );
-      dispatch({ type: EMPLOYEE_CREATE_SUCCESS, payload: data });
+      dispatch({ type: BLOG_CREATE_SUCCESS, payload: data });
     } catch (error) {
       dispatch({
-        type: EMPLOYEE_CREATE_FAIL,
+        type: BLOG_CREATE_FAIL,
         payload:
           error.response && error.response.data.message
             ? error.response.data.message
@@ -90,9 +81,9 @@ export const createEmployee =
     }
   };
 
-export const deleteEmployee = (id) => async (dispatch, getState) => {
+export const deleteBlog = (id) => async (dispatch, getState) => {
   try {
-    dispatch({ type: EMPLOYEE_DELETE_REQUEST });
+    dispatch({ type: BLOG_REMOVE_REQUEST });
     const {
       userLogin: { userInfo },
     } = getState();
@@ -102,10 +93,10 @@ export const deleteEmployee = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.delete(`${serverUrl}/${id}`, config);
-    dispatch({ type: EMPLOYEE_DELETE_SUCCESS, payload: data });
+    dispatch({ type: BLOG_REMOVE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_DELETE_FAIL,
+      type: BLOG_REMOVE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -114,9 +105,9 @@ export const deleteEmployee = (id) => async (dispatch, getState) => {
   }
 };
 
-export const updateEmployee = (blog) => async (dispatch, getState) => {
+export const updateBlog = (blog) => async (dispatch, getState) => {
   try {
-    dispatch({ type: EMPLOYEE_UPDATE_REQUEST });
+    dispatch({ type: BLOG_UPDATE_REQUEST });
     const {
       userLogin: { userInfo },
     } = getState();
@@ -127,10 +118,10 @@ export const updateEmployee = (blog) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(`${serverUrl}/${blog._id}`, blog, config);
-    dispatch({ type: EMPLOYEE_UPDATE_SUCCESS, payload: data });
+    dispatch({ type: BLOG_UPDATE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_UPDATE_FAIL,
+      type: BLOG_UPDATE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

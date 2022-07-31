@@ -13,6 +13,9 @@ import {
 } from "../constants/user.constants";
 import axios from "axios";
 
+const serverUrl =
+process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/users` : 'api/users';
+
 export const login = (username, password) => async (dispatch) => {
     try {
         dispatch({
@@ -24,7 +27,7 @@ export const login = (username, password) => async (dispatch) => {
             },
         };
         const { data } = await axios.post(
-            "https://protected-oasis-46723.herokuapp.com/api/users/sign-in",
+            `${serverUrl}/sign-in`,
             {
                 username,
                 password,
@@ -70,7 +73,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
             },
         };
         const { data } = await axios.get(
-            `https://protected-oasis-46723.herokuapp.com/api/users/${id}`,
+            `${serverUrl}/${id}`,
             config
         );
         dispatch({
@@ -105,7 +108,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
             },
         };
         const { data } = await axios.put(
-            `https://protected-oasis-46723.herokuapp.com/api/users/settings`,
+            `${serverUrl}/settings`,
             user,
             config
         );

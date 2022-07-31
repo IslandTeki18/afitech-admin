@@ -3,7 +3,7 @@ import parser from "html-react-parser";
 import "./BlogDetailsPage.scss";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailBlog } from "../../actions/blog.actions";
+import { detailBlog } from "../../redux/actions/blog.actions";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 

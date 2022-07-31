@@ -17,11 +17,13 @@ import {
 } from "../constants/project.constants";
 import axios from "axios";
 
+const serverUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/projects` : 'api/projects'
+
 export const listProjects = () => async (dispatch) => {
   try {
     dispatch({ type: PROJECT_ALL_REQUEST });
     const { data } = await axios.get(
-      "https://protected-oasis-46723.herokuapp.com/api/projects"
+      `${serverUrl}`
     );
     dispatch({ type: PROJECT_ALL_SUCCESS, payload: data });
   } catch (error) {
@@ -39,7 +41,7 @@ export const detailsProject = (id) => async (dispatch) => {
   try {
     dispatch({ type: PROJECT_DETAILS_REQUEST });
     const { data } = await axios.get(
-      `https://protected-oasis-46723.herokuapp.com/api/projects/${id}`
+      `${serverUrl}/${id}`
     );
     dispatch({ type: PROJECT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
@@ -75,7 +77,7 @@ export const createProject =
         },
       };
       const { data } = await axios.post(
-        "https://protected-oasis-46723.herokuapp.com/api/projects",
+        `${serverUrl}`,
         {
           title,
           slug,
@@ -111,7 +113,7 @@ export const deleteProject = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.delete(
-      `https://protected-oasis-46723.herokuapp.com/api/projects/${id}`,
+      `${serverUrl}/${id}`,
       config
     );
     dispatch({ type: PROJECT_REMOVE_SUCCESS, payload: data });
@@ -138,7 +140,7 @@ export const updateProject = (project) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(
-      `https://protected-oasis-46723.herokuapp.com/api/projects/${project._id}`,
+      `${serverUrl}/${project._id}`,
       project,
       config
     );

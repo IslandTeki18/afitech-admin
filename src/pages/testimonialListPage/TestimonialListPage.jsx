@@ -6,7 +6,7 @@ import DataTable from "../../components/dataTable/DataTable";
 import {
   listTestimonials,
   deleteTestimonial,
-} from "../../actions/testimonial.actions";
+} from "../../redux/actions/testimonial.actions";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 import CreateTestimonialModal from "../../components/createTestimonialModal/CreateTestimonialModal";

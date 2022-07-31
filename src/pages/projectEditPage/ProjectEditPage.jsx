@@ -3,7 +3,7 @@ import "./ProjectEditPage.scss";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import InputLabel from "../../components/inputLabel/InputLabel";
-import { detailsProject, updateProject } from "../../actions/project.actions";
+import { detailsProject, updateProject } from "../../redux/actions/project.actions";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 import { PROJECT_UPDATE_RESET } from "../../constants/project.constants";

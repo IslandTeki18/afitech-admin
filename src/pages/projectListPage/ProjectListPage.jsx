@@ -7,7 +7,7 @@ import {
   listProjects,
   createProject,
   deleteProject,
-} from "../../actions/project.actions";
+} from "../../redux/actions/project.actions";
 import Message from "../../components/message/Message";
 import Loader from "../../components/loader/Loader";
 import Modal from "../../components/modal/Modal";

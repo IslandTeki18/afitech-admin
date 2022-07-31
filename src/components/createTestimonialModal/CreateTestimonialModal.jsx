@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { createTestimonial } from "../../actions/testimonial.actions";
+import { createTestimonial } from "../../redux/actions/testimonial.actions";
 import Modal from "../modal/Modal";
 import InputLabel from "../inputLabel/InputLabel";
 import TextAreaLabel from "../textAreaLabel/TextAreaLabel";

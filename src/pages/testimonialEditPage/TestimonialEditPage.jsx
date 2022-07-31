@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   detailTestimonial,
   updateTestimonial,
-} from "../../actions/testimonial.actions";
+} from "../../redux/actions/testimonial.actions";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 import InputLabel from "../../components/inputLabel/InputLabel";

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.scss";
 import { useDispatch } from "react-redux";
-import { logout } from "../../actions/user.actions";
+import { logout } from "../../redux/actions/user.actions";
 
 const Header = (props) => {
     const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "./TestimonialDetailsPage.scss";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailTestimonial } from "../../actions/testimonial.actions";
+import { detailTestimonial } from "../../redux/actions/testimonial.actions";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 

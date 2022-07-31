@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "./ServiceListPage.scss";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { listServices, deleteService } from "../../actions/service.actions";
+import { listServices, deleteService } from "../../redux/actions/service.actions";
 import DataTable from "../../components/dataTable/DataTable";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";

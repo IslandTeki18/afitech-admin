@@ -4,7 +4,7 @@ import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailService } from "../../actions/service.actions";
+import { detailService } from "../../redux/actions/service.actions";
 
 const ServiceDetailsPage = () => {
   const { id } = useParams();

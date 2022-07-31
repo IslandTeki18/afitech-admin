@@ -3,7 +3,7 @@ import "./BlogListPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import DataTable from "../../components/dataTable/DataTable";
 import { Link, useHistory } from "react-router-dom";
-import { listBlogs, createBlog, deleteBlog } from "../../actions/blog.actions";
+import { listBlogs, createBlog, deleteBlog } from "../../redux/actions/blog.actions";
 import Message from "../../components/message/Message";
 import Loader from "../../components/loader/Loader";
 

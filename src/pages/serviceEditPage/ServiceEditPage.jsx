@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./ServiceEditPage.scss";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailService, updateService } from "../../actions/service.actions";
+import { detailService, updateService } from "../../redux/actions/service.actions";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 import InputLabel from "../../components/inputLabel/InputLabel";
