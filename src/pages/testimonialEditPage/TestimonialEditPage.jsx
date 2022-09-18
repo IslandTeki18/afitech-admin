@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./TestimonialEditPage.scss";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   detailTestimonial,
@@ -10,11 +10,11 @@ import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 import InputLabel from "../../components/inputLabel/InputLabel";
 import TextAreaLabel from "../../components/textAreaLabel/TextAreaLabel";
-import { TESTIMONIAL_UPDATE_RESET } from "../../constants/testimonial.constants";
+import { TESTIMONIAL_UPDATE_RESET } from "../../redux/constants/testimonial.constants";
 
 const TestimonialEditPage = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { testimonialId } = useParams();
   const testimonialDetails = useSelector((state) => state.testimonialDetails);
   const { loading, error, testimonial } = testimonialDetails;
@@ -38,12 +38,12 @@ const TestimonialEditPage = () => {
     window.scrollTo(0, "smooth");
     if (updateSuccess) {
       dispatch({ type: TESTIMONIAL_UPDATE_RESET });
-      history.push(`/testimonial/${testimonialId}`);
+      navigate(`/testimonial/${testimonialId}`);
     }
     if (!testimonial || testimonialId !== testimonial._id) {
       dispatch(detailTestimonial(testimonialId));
     }
-  }, [dispatch, testimonial, testimonialId, history, updateSuccess]);
+  }, [dispatch, testimonial, testimonialId, navigate, updateSuccess]);
 
   useEffect(() => {
     if (testimonial) {

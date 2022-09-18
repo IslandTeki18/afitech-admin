@@ -5,42 +5,42 @@ import {
   userLoginReducer,
   userDetailsReducer,
   userUpdateReducer,
-} from "../reducers/user.reducers";
+} from "../redux/reducers/user.reducers";
 import {
   projectListReducer,
   projectDetailsReducer,
   projectCreateReducer,
   projectDeleteReducer,
   projectUpdateReducer,
-} from "../reducers/project.reducers";
+} from "../redux/reducers/project.reducers";
 import {
   blogListReducer,
   blogDetailsReducer,
   blogCreateReducer,
   blogRemoveReducer,
   blogUpdateReducer,
-} from "../reducers/blog.reducers";
+} from "../redux/reducers/blog.reducers";
 import {
   serviceListReducer,
   serviceDetailsReducer,
   serviceCreateReducer,
   serviceDeleteReducer,
   serviceUpdateReducer,
-} from "../reducers/service.reducers";
+} from "../redux/reducers/service.reducers";
 import {
   employeeListReducer,
   employeeDetailsReducer,
   employeeCreateReducer,
   employeeDeleteReducer,
   employeeUpdateReducer,
-} from "../reducers/employee.reducers";
+} from "../redux/reducers/employee.reducers";
 import {
   testimonialListReducer,
   testimonialDetailsReducer,
   testimonialCreateReducer,
   testimonialDeleteReducer,
   testimonialUpdateReducer,
-} from "../reducers/testimonial.reducers";
+} from "../redux/reducers/testimonial.reducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,

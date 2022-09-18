@@ -1,15 +1,19 @@
 import { useEffect } from "react";
 import "./ServiceListPage.scss";
-import { Link } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { listServices, deleteService } from "../../redux/actions/service.actions";
-import DataTable from "../../components/dataTable/DataTable";
-import Loader from "../../components/loader/Loader";
-import Message from "../../components/message/Message";
-import CreateServiceModal from "../../components/createServiceModal/CreateServiceModal";
+import {
+  listServices,
+  deleteService,
+} from "../../../redux/actions/service.actions";
+import DataTable from "../../../components/dataTable/DataTable";
+import Loader from "../../../components/loader/Loader";
+import Message from "../../../components/message/Message";
+import CreateServiceModal from "../../../components/createServiceModal/CreateServiceModal";
 
 const ServiceListPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const serviceList = useSelector((state) => state.serviceList);
   const { loading, error, services } = serviceList;
   const serviceCreate = useSelector((state) => state.serviceCreate);
@@ -63,15 +67,20 @@ const ServiceListPage = () => {
             </td>
             <td>
               <div className="btn-group">
-                <Link to={`/service/${item._id}`} className="btn btn-primary">
+                <button
+                  className="btn btn-primary"
+                  onClick={() => navigate(`/services/${item._id}`)}
+                >
                   View
-                </Link>
-                <Link
-                  to={`/service/${item._id}/edit`}
+                </button>
+                <button
+                  onClick={() =>
+                    navigate(`/services/${item._id}/edit`, { replace: true })
+                  }
                   className="btn btn-warning"
                 >
                   Edit
-                </Link>
+                </button>
                 <button
                   className="btn btn-danger"
                   onClick={() => deleteServiceHandler(item._id)}
@@ -84,6 +93,16 @@ const ServiceListPage = () => {
         ))}
       />
     );
+  }
+
+  if (!services) {
+    return (
+      <div className="container">
+          <div className="col-12">
+            There's Nothing here for you
+          </div>
+      </div>
+    )
   }
 
   return (
@@ -130,6 +149,7 @@ const ServiceListPage = () => {
           </div>
         </div>
       </div>
+      <Outlet />
       <CreateServiceModal modalId="createServiceId" />
     </div>
   );

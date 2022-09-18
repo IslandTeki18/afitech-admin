@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import "./BlogEditPage.scss";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { detailBlog, updateBlog } from "../../redux/actions/blog.actions";
 import InputLabel from "../../components/inputLabel/InputLabel";
 import RichTextEditor from "../../components/richTextEditor/RichTextEditor";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
-import { BLOG_UPDATE_RESET } from "../../constants/blog.constants";
+import { BLOG_UPDATE_RESET } from "../../redux/constants/blog.constants";
 
 const BlogEditPage = () => {
   const { blogId } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const blogDetails = useSelector((state) => state.blogDetails);
   const { loading, error, blog } = blogDetails;
   const blogUpdate = useSelector((state) => state.blogUpdate);
@@ -36,7 +36,7 @@ const BlogEditPage = () => {
     window.scrollTo(0, "smooth");
     if (updateSuccess) {
       dispatch({ type: BLOG_UPDATE_RESET });
-      history.push(`/blog/${blogId}`);
+      navigate(`/blog/${blogId}`);
     }
     if (!blog || blogId !== blog._id) {
       dispatch(detailBlog(blogId));
@@ -51,7 +51,7 @@ const BlogEditPage = () => {
         isPublished: blog.isPublished,
       });
     }
-  }, [dispatch, blogId, blog, updateSuccess, history]);
+  }, [dispatch, blogId, blog, updateSuccess, navigate]);
 
   function submitHandler(e) {
     e.preventDefault();

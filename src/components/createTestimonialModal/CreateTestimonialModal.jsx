@@ -31,6 +31,15 @@ const CreateTestimonialModal = (props) => {
         testimonialObj.isActive
       )
     );
+    setTestimonialObj({
+      name: "",
+      testimonial: "",
+      clientCompanyPosition: "",
+      companyLocation: "",
+      companyName: "",
+      companyWebsite: "",
+      isActive: false,
+    })
   }
   return (
     <div className="dkCreateTestimonialModal">

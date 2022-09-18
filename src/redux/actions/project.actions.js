@@ -15,16 +15,17 @@ import {
   PROJECT_UPDATE_SUCCESS,
   PROJECT_UPDATE_FAIL,
 } from "../constants/project.constants";
-import axios from "axios";
+import axios from "../../utils/http-common";
 
-const serverUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/projects` : 'api/projects'
+const serverUrl =
+  process.env.NODE_ENV === "production"
+    ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/projects`
+    : "api/projects";
 
 export const listProjects = () => async (dispatch) => {
   try {
     dispatch({ type: PROJECT_ALL_REQUEST });
-    const { data } = await axios.get(
-      `${serverUrl}`
-    );
+    const { data } = await axios.get(`${serverUrl}`);
     dispatch({ type: PROJECT_ALL_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -40,9 +41,7 @@ export const listProjects = () => async (dispatch) => {
 export const detailsProject = (id) => async (dispatch) => {
   try {
     dispatch({ type: PROJECT_DETAILS_REQUEST });
-    const { data } = await axios.get(
-      `${serverUrl}/${id}`
-    );
+    const { data } = await axios.get(`${serverUrl}/${id}`);
     dispatch({ type: PROJECT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -112,10 +111,7 @@ export const deleteProject = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.delete(
-      `${serverUrl}/${id}`,
-      config
-    );
+    const { data } = await axios.delete(`${serverUrl}/${id}`, config);
     dispatch({ type: PROJECT_REMOVE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

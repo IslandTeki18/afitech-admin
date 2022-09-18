@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import "./ServiceEditPage.scss";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailService, updateService } from "../../redux/actions/service.actions";
-import Loader from "../../components/loader/Loader";
-import Message from "../../components/message/Message";
-import InputLabel from "../../components/inputLabel/InputLabel";
-import TextAreaLabel from "../../components/textAreaLabel/TextAreaLabel";
-import { SERVICE_UPDATE_RESET } from "../../constants/service.constants";
+import {
+  detailService,
+  updateService,
+} from "../../../redux/actions/service.actions";
+import Loader from "../../../components/loader/Loader";
+import Message from "../../../components/message/Message";
+import InputLabel from "../../../components/inputLabel/InputLabel";
+import TextAreaLabel from "../../../components/textAreaLabel/TextAreaLabel";
+import { SERVICE_UPDATE_RESET } from "../../../redux/constants/service.constants";
 
 const ServiceEditPage = () => {
   const { serviceId } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const serviceUpdate = useSelector((state) => state.serviceUpdate);
   const {
@@ -33,12 +36,12 @@ const ServiceEditPage = () => {
     window.scrollTo(0, "smooth");
     if (updateSuccess) {
       dispatch({ type: SERVICE_UPDATE_RESET });
-      history.push(`/service/${serviceId}`);
+      navigate(`/service/${serviceId}`);
     }
     if (!service || serviceId !== service._id) {
       dispatch(detailService(serviceId));
     }
-  }, [service, dispatch, serviceId, history, updateSuccess]);
+  }, [service, dispatch, serviceId, navigate, updateSuccess]);
 
   useEffect(() => {
     if (service) {
@@ -72,9 +75,9 @@ const ServiceEditPage = () => {
       <div className="container">
         <div className="d-flex justify-content-between align-items-center pt-4">
           <h2>Service Edit Page</h2>
-          <Link className="btn btn-secondary" to={`/service/${serviceId}`}>
+          <button className="btn btn-secondary" onClick={() => navigate(-1)}>
             back
-          </Link>
+          </button>
         </div>
         {error && (
           <Message variant="danger" isDissmissable>
@@ -207,9 +210,13 @@ const ServiceEditPage = () => {
                 </button>
               </div>
               <div className="col-6 d-grid">
-                <Link to="/service-list" className="btn btn-secondary">
+                <button
+                  to="/service-list"
+                  className="btn btn-secondary"
+                  onClick={() => navigate(-1)}
+                >
                   cancel
-                </Link>
+                </button>
               </div>
             </div>
           </form>

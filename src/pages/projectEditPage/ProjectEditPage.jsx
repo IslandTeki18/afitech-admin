@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import "./ProjectEditPage.scss";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import InputLabel from "../../components/inputLabel/InputLabel";
 import { detailsProject, updateProject } from "../../redux/actions/project.actions";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
-import { PROJECT_UPDATE_RESET } from "../../constants/project.constants";
+import { PROJECT_UPDATE_RESET } from "../../redux/constants/project.constants";
 
 const ProjectEditPage = () => {
   const { projectId } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [projectObj, setProjectObj] = useState({
     _id: projectId,
     title: "",
@@ -36,7 +36,7 @@ const ProjectEditPage = () => {
     window.scrollTo(0, "smooth");
     if (updateSuccess) {
       dispatch({ type: PROJECT_UPDATE_RESET });
-      history.push(`/project/${projectId}`);
+      navigate(`/project/${projectId}`);
     }
     if (!project || projectId !== project._id) {
       dispatch(detailsProject(projectId));
@@ -56,7 +56,7 @@ const ProjectEditPage = () => {
         };
       });
     }
-  }, [dispatch, projectId, project, updateSuccess, history]);
+  }, [dispatch, projectId, project, updateSuccess, navigate]);
 
   function submitHandler(e) {
     e.preventDefault();

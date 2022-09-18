@@ -15,10 +15,12 @@ import {
   TESTIMONIAL_UPDATE_SUCCESS,
   TESTIMONIAL_UPDATE_FAIL,
 } from "../constants/testimonial.constants";
-import axios from "axios";
+import axios from "../../utils/http-common";
 
 const serverUrl =
-process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/testimonials` : 'api/testimonials';
+  process.env.NODE_ENV === "production"
+    ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/testimonials`
+    : "api/testimonials";
 
 export const listTestimonials = () => async (dispatch) => {
   try {
@@ -123,27 +125,32 @@ export const deleteTestimonial = (id) => async (dispatch, getState) => {
   }
 };
 
-export const updateTestimonial = (testimonial) => async (dispatch, getState) => {
-  try {
-    dispatch({ type: TESTIMONIAL_UPDATE_REQUEST });
-    const {
-      userLogin: { userInfo },
-    } = getState();
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-    const { data } = await axios.put(`${serverUrl}/${testimonial._id}`, testimonial, config);
-    dispatch({ type: TESTIMONIAL_UPDATE_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({
-      type: TESTIMONIAL_UPDATE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+export const updateTestimonial =
+  (testimonial) => async (dispatch, getState) => {
+    try {
+      dispatch({ type: TESTIMONIAL_UPDATE_REQUEST });
+      const {
+        userLogin: { userInfo },
+      } = getState();
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+      const { data } = await axios.put(
+        `${serverUrl}/${testimonial._id}`,
+        testimonial,
+        config
+      );
+      dispatch({ type: TESTIMONIAL_UPDATE_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({
+        type: TESTIMONIAL_UPDATE_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };

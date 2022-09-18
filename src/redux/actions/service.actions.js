@@ -15,14 +15,18 @@ import {
   SERVICE_UPDATE_SUCCESS,
   SERVICE_UPDATE_FAIL,
 } from "../constants/service.constants";
-import axios from "axios";
+import axios from "../../utils/http-common";
 
-const serverUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/services` : 'api/services';
+const serverUrl =
+  process.env.NODE_ENV === "production"
+    ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/services`
+    : "api/services";
 
 export const listServices = () => async (dispatch) => {
   try {
     dispatch({ type: SERVICE_LIST_REQUEST });
-    const { data } = await axios.get(`${serverUrl}`);
+    const {data} = await axios.get(`${serverUrl}`);
+    console.log(data)
     dispatch({ type: SERVICE_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

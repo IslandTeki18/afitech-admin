@@ -15,9 +15,12 @@ import {
   EMPLOYEE_UPDATE_SUCCESS,
   EMPLOYEE_UPDATE_FAIL,
 } from "../constants/employee.constants";
-import axios from "axios";
+import axios from "../../utils/http-common";
 
-const serverUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/employee` : 'api/blogs';
+const serverUrl =
+  process.env.NODE_ENV === "production"
+    ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/employee`
+    : "api/blogs";
 
 export const listEmployees = () => async (dispatch) => {
   try {

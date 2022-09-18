@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./LoginPage.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/actions/user.actions";
 import InputLabel from "../../components/inputLabel/InputLabel";
 import Loader from "../../components/loader/Loader";
@@ -9,7 +9,7 @@ import Message from "../../components/message/Message";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
   const [userName, setUserName] = useState("");
@@ -17,14 +17,14 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (userInfo) {
-      history.push("/dashboard");
+      navigate("/dashboard");
     }
-  }, [history, userInfo]);
+  }, [navigate, userInfo]);
 
   function onSubmitForm(e) {
     e.preventDefault();
     dispatch(login(userName, password));
-    history.push("/dashboard");
+    navigate("/dashboard");
   }
   return (
     <div className="rsLoginPage">

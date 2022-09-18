@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import "./EmployeeEditPage.scss";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import TextAreaLabel from "../../components/textAreaLabel/TextAreaLabel";
 import InputLabel from "../../components/inputLabel/InputLabel";
 import { detailEmployee, updateEmployee } from "../../redux/actions/employee.actions";
-import { EMPLOYEE_UPDATE_RESET } from "../../constants/employee.constants";
+import { EMPLOYEE_UPDATE_RESET } from "../../redux/constants/employee.constants";
 import Loader from "../../components/loader/Loader";
 import Message from "../../components/message/Message";
 
 const EmployeeEditPage = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { employeeId } = useParams();
   const employeeDetails = useSelector((state) => state.employeeDetails);
   const { loading, error, employee } = employeeDetails;
@@ -35,12 +35,12 @@ const EmployeeEditPage = () => {
     window.scrollTo(0, "smooth");
     if (updateSuccess) {
       dispatch({ type: EMPLOYEE_UPDATE_RESET });
-      history.push(`/employee/${employeeId}`);
+      navigate(`/employee/${employeeId}`);
     }
     if (!employee || employeeId !== employee._id) {
       dispatch(detailEmployee(employeeId));
     }
-  }, [dispatch, updateSuccess, history, employee, employeeId]);
+  }, [dispatch, updateSuccess, navigate, employee, employeeId]);
 
   useEffect(() => {
     if (employee) {

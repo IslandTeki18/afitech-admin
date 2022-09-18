@@ -2,14 +2,14 @@ import { useEffect } from "react";
 import "./BlogListPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import DataTable from "../../components/dataTable/DataTable";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { listBlogs, createBlog, deleteBlog } from "../../redux/actions/blog.actions";
 import Message from "../../components/message/Message";
 import Loader from "../../components/loader/Loader";
 
 const BlogListPage = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const blogList = useSelector((state) => state.blogList);
   const { loading, error, blogs } = blogList;
   const blogCreate = useSelector((state) => state.blogCreate);
@@ -37,10 +37,10 @@ const BlogListPage = () => {
   useEffect(() => {
     window.scrollTo(0, "smooth");
     if (createSuccess) {
-      history.push(`/blog/${blogObjCreate._id}/edit`);
+      navigate(`/blog/${blogObjCreate._id}/edit`);
     }
     dispatch(listBlogs());
-  }, [dispatch, createSuccess, history, blogObjCreate, removeSuccess]);
+  }, [dispatch, createSuccess, navigate, blogObjCreate, removeSuccess]);
 
   function deleteBlogHandler(id) {
     if (window.confirm("Are you sure you want to delete?")) {

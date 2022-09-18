@@ -25,6 +25,12 @@ const CreateServiceModal = (props) => {
         serviceObj.longDescription
       )
     );
+    setServiceObj({
+      title: "",
+      type: "",
+      shortDescription: "",
+      longDescription: ""
+    })
   }
   return (
     <div className="dkCreateServiceModal">

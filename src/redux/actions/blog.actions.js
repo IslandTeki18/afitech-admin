@@ -15,8 +15,12 @@ import {
   BLOG_UPDATE_SUCCESS,
   BLOG_UPDATE_FAIL,
 } from "../constants/blog.constants";
-import axios from "axios";
-const serverUrl = process.env.NODE_ENV === "production" ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/blogs` : 'api/blogs';
+import axios from "../../utils/http-common";
+
+const serverUrl =
+  process.env.NODE_ENV === "production"
+    ? `${process.env.REACT_APP_HEROKU_SERVER_URL}api/blogs`
+    : "api/blogs";
 
 export const listBlogs = () => async (dispatch) => {
   try {

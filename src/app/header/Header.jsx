@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.scss";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/actions/user.actions";
+import { NavLink, Link } from "react-router-dom";
 
 const Header = (props) => {
     const dispatch = useDispatch();
@@ -12,9 +13,9 @@ const Header = (props) => {
         <div className="rsHeader">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <Link className="navbar-brand" to="dashboard">
                         AFI TECH ADMIN
-                    </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -32,13 +33,13 @@ const Header = (props) => {
                     >
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a
+                                <NavLink
                                     className="nav-link"
                                     aria-current="page"
-                                    href="/dashboard"
+                                    href="/"
                                 >
                                     Dashboard
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="nav-item dropdown">
                                 <a
@@ -56,55 +57,55 @@ const Header = (props) => {
                                     aria-labelledby="navbarDropdown"
                                 >
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="/project-list"
+                                            to="/projects"
                                         >
                                             Project List
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="/blog-list"
+                                            to="/blogs"
                                         >
                                             Blog List
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="/service-list"
+                                            to="/services/list"
                                         >
                                             Service List
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="/employee-list"
+                                            to="/employees"
                                         >
                                             Employee List
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="/testimonial-list"
+                                            to="/testimonials"
                                         >
                                             Testimonial List
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
                                         <hr className="dropdown-divider" />
                                     </li>
                                     <li>
-                                        <a
+                                        <Link
                                             className="dropdown-item"
-                                            href="/user-settings"
+                                            to="/user-settings"
                                         >
                                             User Settings
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </li>
